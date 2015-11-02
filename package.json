@@ -1,0 +1,28 @@
+{
+  "name": "node-acme",
+  "version": "0.0.1",
+  "description": "Client for ACME protocol",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hildjj/node-acme.git"
+  },
+  "keywords": [
+    "acme",
+    "cert",
+    "certificate",
+    "pkix",
+    "https",
+    "ssl",
+    "tls"
+  ],
+  "author": "Joe Hildebrand <joe-github@cursive.net>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/hildjj/node-acme/issues"
+  },
+  "homepage": "https://github.com/hildjj/node-acme#readme"
+}
