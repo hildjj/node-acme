@@ -1,0 +1,12 @@
+{
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "no-shadow": [0],
+    "no-underscore-dangle": [0],
+    "quotes": [2, "single"],
+    "strict": [2, "global"],
+    "yoda": [0]
+  }
+}

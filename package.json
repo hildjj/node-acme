@@ -24,5 +24,25 @@
   "bugs": {
     "url": "https://github.com/hildjj/node-acme/issues"
   },
-  "homepage": "https://github.com/hildjj/node-acme#readme"
+  "homepage": "https://github.com/hildjj/node-acme#readme",
+  "dependencies": {
+    "bluebird": "^3.0",
+    "continuation-local-storage": "^3.1",
+    "node-forge": "^0.6.37",
+    "request-promise": "^1.0",
+    "yargs": "^3.29"
+  },
+  "devDependencies": {
+    "chai": "^3.4",
+    "del": "^2.0",
+    "gulp": "^3.9",
+    "gulp-coveralls": "^0.1",
+    "gulp-eslint": "^1.0",
+    "gulp-istanbul": "^0.10",
+    "gulp-jsdoc": "^0.1.5",
+    "gulp-live-server": "0.0",
+    "gulp-mocha": "^2.1",
+    "gulp-util": "^3.0",
+    "open": "0.0"
+  }
 }
