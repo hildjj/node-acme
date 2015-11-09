@@ -33,7 +33,7 @@ describe('crypto utilities', function(){
     })
   });
 
-  it('csr', function(){
+  it('csr and signs', function(){
     cutils.generateKeyPair(512).then(function(kp){
       var csr = cutils.generateCSR(kp, 'testing');
       assert.ok(csr);
@@ -60,6 +60,11 @@ describe('crypto utilities', function(){
       var der = forge.asn1.toDer(forge.pki.certificationRequestToAsn1(anon_csr));
       anon_csr = utils.b64enc(cutils.bytesToBuffer(der));
       assert.equal(cutils.verifiedCommonName(anon_csr), false);
+
+      var sig = cutils.generateSignature(kp, Buffer('foo'));
+      assert.ok(utils.fieldsPresent(['header', 'protected', 'payload', 'signature'], sig));
+      assert.ok(utils.fieldsPresent(['alg', 'jwk'], sig.header));
+      assert.ok(utils.fieldsPresent(['kty', 'n', 'e'], sig.header.jwk));
     });
   });
 });
