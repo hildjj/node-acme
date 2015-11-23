@@ -4,7 +4,7 @@
   "description": "Client for ACME protocol",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,9 @@
   "homepage": "https://github.com/hildjj/node-acme#readme",
   "dependencies": {
     "bluebird": "^3.0",
-    "continuation-local-storage": "^3.1",
-    "node-forge": "^0.6.37",
+    "bunyan": "^1.5",
+    "node-forge": "^0.6",
+    "request-debug": "^0.2",
     "request-promise": "^1.0",
     "yargs": "^3.29"
   },
@@ -39,10 +40,10 @@
     "gulp-coveralls": "^0.1",
     "gulp-eslint": "^1.0",
     "gulp-istanbul": "^0.10",
-    "gulp-jsdoc": "^0.1.5",
+    "gulp-jsdoc": "^0.1",
     "gulp-live-server": "0.0",
     "gulp-mocha": "^2.1",
     "gulp-util": "^3.0",
-    "open": "0.0"
+    "open": "^0.0"
   }
 }
