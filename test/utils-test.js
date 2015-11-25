@@ -85,8 +85,10 @@ describe('utilities', function() {
     var a = {b: 1};
     var c = utils.extend(a, {c: 2, d: 3});
     assert.deepEqual(c, {b: 1, c: 2, d: 3});
-    utils.extend(a, {b: 4});
-    assert.deepEqual(c, {b: 4, c: 2, d: 3});
+    c = utils.extend(a, {b: 4}, {e: 5});
+    assert.deepEqual(c, {b: 4, e: 5});
+    c = utils.extend(a, null, {b: null, c: undefined});
+    assert.deepEqual(c, {b: 1});
   });
 
   it('extract', function() {
