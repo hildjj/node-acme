@@ -9,11 +9,11 @@ var assert = require('chai').assert;
 var acme   = require('../lib/acme');
 
 describe('ACME protocol', function() {
-  it('parseLink', function() {
-    var t = acme.parseLink('<testing>; rel="test", <foo>; rel="test2"; title="a test"');
-    assert.deepEqual(t, {
-      test:  'testing',
-      test2: 'foo'
+  it('creates and initializes', function(done) {
+    var a = new acme();
+    a.init().then(function(b){
+      assert.equal(a, b);
+      done();
     });
   });
 });

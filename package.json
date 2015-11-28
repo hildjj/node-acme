@@ -27,15 +27,15 @@
   "homepage": "https://github.com/hildjj/node-acme#readme",
   "dependencies": {
     "bluebird": "^3.0",
-    "bunyan": "^1.5",
     "node-forge": "^0.6",
     "request-debug": "^0.2",
-    "request-promise": "^1.0",
+    "request-promise": "https://github.com/hildjj/request-promise.git#cls-depend",
     "yargs": "^3.29"
   },
   "devDependencies": {
     "chai": "^3.4",
     "del": "^2.0",
+    "express": "^4.13",
     "gulp": "^3.9",
     "gulp-coveralls": "^0.1",
     "gulp-eslint": "^1.0",
