@@ -1,6 +1,3 @@
 #!/usr/bin/env node
 var cli = require(__dirname + '/../lib/cli');
-new cli().exec()
-.catch(function(er) {
-  console.log('ERROR', er, er.stack);
-})
+new cli().exec();

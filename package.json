@@ -28,6 +28,7 @@
   "dependencies": {
     "bluebird": "^3.0",
     "node-forge": "^0.6",
+    "npmlog": "^2.0",
     "request-debug": "^0.2",
     "request-promise": "https://github.com/hildjj/request-promise.git#cls-depend",
     "yargs": "^3.29"
