@@ -18,10 +18,11 @@ describe('crypto utilities', function() {
         'e', 'n', 'd',
         'p', 'q', 'dp', 'dq', 'qi'], priv.toJSON(true)));
       var priv_pem = cutils.privateKeyToPem(priv);
-      console.log('PRIV', priv_pem);
       assert.match(priv_pem, /^-----BEGIN RSA PRIVATE KEY-----$/m);
-      var priv = cutils.importPemPrivateKey(priv_pem);
-      assert.ok(utils.fieldsPresent(['privateKey', 'publicKey'], priv));
+      return cutils.importPemPrivateKey(priv_pem)
+      .then(function(ipriv) {
+        assert.ok(ipriv);
+      });
     });
   });
 
