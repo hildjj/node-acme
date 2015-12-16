@@ -33,9 +33,13 @@ gulp.task('test', ['lint'], function() {
 });
 
 gulp.task('doc', function() {
-  var jsdoc = require('gulp-jsdoc');
-  gulp.src([SRC])
-    .pipe(jsdoc('./doc'));
+  var documentation = require('gulp-documentation');
+  return gulp.src([SRC])
+    .pipe(documentation({
+      format: 'html',
+      github: true
+    }))
+    .pipe(gulp.dest('doc'));
 });
 
 gulp.task('doc-deploy', ['doc'], function() {

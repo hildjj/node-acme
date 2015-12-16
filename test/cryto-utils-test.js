@@ -10,41 +10,23 @@ var forge  = require('node-forge');
 var cutils = require('../lib/crypto-utils');
 var utils  = require('../lib/utils');
 
-describe('crypto utilities', function(){
-  it('randomString', function(){
-    var s = cutils.randomString(16);
-    assert.equal(s.length, 22);
-    assert.ok(utils.isB64String(s));
-  });
-
-  it('randomSerialNumber', function(){
-    var s = cutils.randomSerialNumber();
-    assert.equal(s.length, 8);
-  });
-
-  it('newToken', function(){
-    var s = cutils.newToken();
-    assert.equal(s.length, 22);
-  });
-
-  it('sha256', function(){
-    var s = cutils.sha256(new Buffer('foo'));
-    assert.equal(s,
-      '2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae');
-  });
-
-  it('keys', function(){
-    cutils.generateKeyPair(256).then(function(kp){
-      assert.ok(utils.fieldsPresent(['privateKey', 'publicKey'], kp));
-      var priv_pem = cutils.privateKeyToPem(kp.privateKey);
+describe('crypto utilities', function() {
+  it('keys', function() {
+    return cutils.generateKey(256).then(function(priv){
+      assert.ok(utils.fieldsPresent([
+        'kty', 'kid',
+        'e', 'n', 'd',
+        'p', 'q', 'dp', 'dq', 'qi'], priv.toJSON(true)));
+      var priv_pem = cutils.privateKeyToPem(priv);
+      console.log('PRIV', priv_pem);
       assert.match(priv_pem, /^-----BEGIN RSA PRIVATE KEY-----$/m);
       var priv = cutils.importPemPrivateKey(priv_pem);
       assert.ok(utils.fieldsPresent(['privateKey', 'publicKey'], priv));
     });
   });
 
-  it('csr and signs', function(){
-    cutils.generateKeyPair(512).then(function(kp){
+  it('csr and signs', function() {
+    cutils.generateKey(512).then(function(kp){
       var csr = cutils.generateCSR(kp, 'testing');
       assert.ok(csr);
       assert.ok(csr.length > 0);
@@ -71,12 +53,15 @@ describe('crypto utilities', function(){
       anon_csr = utils.b64enc(cutils.bytesToBuffer(der));
       assert.equal(cutils.verifiedCommonName(anon_csr), false);
 
-      var sig = cutils.generateSignature(kp, Buffer('foo'));
-      assert.ok(utils.fieldsPresent(['header', 'protected', 'payload', 'signature'], sig));
-      assert.ok(utils.fieldsPresent(['alg', 'jwk'], sig.header));
-      assert.ok(utils.fieldsPresent(['kty', 'n', 'e'], sig.header.jwk));
-
-      assert.ok(cutils.verifySignature(sig));
+      return cutils.generateSignature(kp.privateKey, 'foo')
+      .then(function(sig) {
+        assert.ok(utils.fieldsPresent(['payload', 'protected', 'signature'], sig));
+        return cutils.verifySignature(sig);
+      })
+      .then(function(v) {
+        assert.ok(v);
+        assert.equal(v.payload, 'foo');
+      });
     });
   });
 });
