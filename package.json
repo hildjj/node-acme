@@ -27,7 +27,7 @@
   "homepage": "https://github.com/hildjj/node-acme#readme",
   "dependencies": {
     "bluebird": "^3.0",
-    "node-jose": "^0.5",
+    "node-jose": "^0.6",
     "npmlog": "^2.0",
     "request-debug": "^0.2",
     "request-promise": "https://github.com/hildjj/request-promise.git#cls-depend",
