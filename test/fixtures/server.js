@@ -75,15 +75,42 @@ function _setup(app, server) {
     });
   });
 
+  app.post('/reg/:id', function(req, res) {
+    var reg = server.registrations[req.params.id];
+    if (reg == null) {
+      return res.status(404).send({
+        type:   'urn:acme:notFound',
+        detail: 'Unknown registration'
+      });
+    }
+    // TODO: check jwk for match
+    reg = utils.extend(reg, utils.extract(['contact', 'agreement'], req.sig.payload));
+    server.registrations[req.params.id] = reg;
+    return res.status(200).send(reg);
+  });
+
   app.get('/reg/:id', function(req, res) {
     var reg = server.registrations[req.params.id];
-    if (reg != null) {
-      return res.status(200).send(reg);
+    if (reg == null) {
+      return res.status(404).send({
+        type:   'urn:acme:notFound',
+        detail: 'Unknown registration'
+      });
     }
-    return res.status(404).send({
-      type:   'urn:acme:notFound',
-      detail: 'Unknown registration'
-    });
+    return res.status(200).send(reg);
+  });
+
+  app.post('/new-authz', function(req, res) {
+    var authz = req.body;
+    authz.challenges = [{
+      uri:   server.base + 'challenge',
+      token: jose.util.randomBytes(NONCE_SIZE).toString('hex')
+    }];
+    return res.status(201).send(authz);
+  });
+
+  app.post('/challenge', function(req, res) {
+    res.status(200).end();
   });
 }
 
@@ -98,15 +125,18 @@ class AcmeServer {
     this.app = express();
     this.directory = {
       'new-reg':          this.base + 'new-reg',
-      'terms-of-service': this.base + 'tos'
+      'terms-of-service': this.base + 'tos',
+      'new-authz':        this.base + 'new-authz'
     };
     _setup(this.app, this);
   }
   start() {
     this.server = this.app.listen(this.port);
+    return this;
   }
   stop() {
     this.server.close();
+    return this;
   }
 }
 module.exports = AcmeServer;
