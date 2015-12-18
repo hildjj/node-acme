@@ -5,11 +5,10 @@
 
 'use strict';
 
-var express      = require('express');
-var bodyParser   = require('body-parser');
 var assert       = require('chai').assert;
 var crypto       = require('../lib/crypto-utils');
 var AcmeProtocol = require('../lib/acme');
+var server       = require('./fixtures/server');
 
 var PORT = 4567;
 var BASE = 'http://localhost:' + PORT;
@@ -21,80 +20,17 @@ var PATHS = {
   newAuthorization: '/new-authz',
   authorization:    '/authz/asdf'
 };
-var DIRECTORY = {
-  'terms-of-service': BASE + PATHS.termsOfService,
-  'new-reg':          BASE + PATHS.newRegistration
-};
 var DIRECTORY_URL = BASE + PATHS.directory;
-var NONCE = 'random';
 var KEY_SIZE = 512;
-
-function directoryLink(rel) {
-  return '<' + DIRECTORY[rel] + '>;rel=' + rel;
-}
-
-// TODO: Test nonce behavior
-var mockServer = express();
-mockServer.use(bodyParser.json());
-mockServer.use(function(req, res, next) {
-  res.append('Replay-Nonce', NONCE);
-  next();
-});
-mockServer.head('/*', function(req, res) {
-  res.end();
-});
-mockServer.post('/*', function(req, res, next) {
-  crypto.verifySignature(req.body)
-  .then((sig) => {
-    if (sig.header['nonce'] !== NONCE) {
-      throw new Error('Missing or incorrect nonce');
-    }
-
-    req.body = sig.payload;
-  })
-  .then(next);
-});
-
-mockServer.get(PATHS.directory, function(req, res) {
-  res.send(DIRECTORY);
-});
-
-mockServer.post(PATHS.newRegistration, function(req, res) {
-  mockServer.registration = req.body;
-
-  res.append('Link', directoryLink('terms-of-service'));
-  res.append('Location', BASE + PATHS.registration);
-  var reg = {'field': 'thing'};
-  if (req.body.contact) {
-    reg.contact = req.body.contact;
-  }
-  res.send(reg);
-});
-
-mockServer.post(PATHS.registration, function(req, res) {
-  mockServer.registration['contact'] = req.body['contact'];
-  mockServer.registration['agreement'] = req.body['agreement'];
-  res.send(mockServer.registration);
-});
-
-mockServer.post(PATHS.newAuthorization, function(req, res) {
-  // TODO
-  res;
-});
-
-mockServer.post(PATHS.authorization, function(req, res) {
-  // TODO
-  res;
-});
 
 var privateKey;
 var mockServerInstance;
 before(() => {
-  mockServerInstance = mockServer.listen(PORT);
+  mockServerInstance = new server(PORT).start();
   return crypto.generateKey(KEY_SIZE)
   .then((key) => { privateKey = key; });
 });
-after(() => { mockServerInstance.close(); });
+after(() => { mockServerInstance.stop(); });
 
 describe('ACME protocol', function() {
   it('creates', function() {
@@ -109,7 +45,8 @@ describe('ACME protocol', function() {
     var a = new AcmeProtocol(privateKey, DIRECTORY_URL);
     return a.directory()
     .then(dir => {
-      assert.deepEqual(dir, DIRECTORY);
+      assert.property(dir, 'new-reg');
+      assert.property(dir, 'terms-of-service');
     });
   });
 

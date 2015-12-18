@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     istanbul = require('gulp-istanbul');
 
-var TESTS = './test/**/*.js';
+var TESTS = './test/*.js';
 var SRC = './lib/**/*.js';
 
 gulp.task('clean', function() {
