@@ -101,7 +101,7 @@ function _setup(app, server) {
   });
 
   app.post('/new-authz', function(req, res) {
-    var authz = req.body;
+    var authz = req.sig.payload;
     authz.challenges = [{
       uri:   server.base + 'challenge',
       token: jose.util.randomBytes(NONCE_SIZE).toString('hex')
