@@ -112,6 +112,13 @@ function _setup(app, server) {
   app.post('/challenge', function(req, res) {
     res.status(200).send(req.sig.payload);
   });
+
+  app.post('/new-cert', function(req, res) {
+    var cert = new Buffer("3000", "hex");
+    res.status(201)
+       .append("content-type", "application/pkix-cert")
+       .send(cert);
+  })
 }
 
 class AcmeServer {
@@ -126,7 +133,8 @@ class AcmeServer {
     this.directory = {
       'new-reg':          this.base + 'new-reg',
       'terms-of-service': this.base + 'tos',
-      'new-authz':        this.base + 'new-authz'
+      'new-authz':        this.base + 'new-authz',
+      'new-cert':         this.base + 'new-cert'
     };
     _setup(this.app, this);
   }

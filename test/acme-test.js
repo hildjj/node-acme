@@ -87,19 +87,28 @@ describe('ACME protocol', function() {
 
     assert.throws(() => { a.newAuthorization(badName); });
 
+    var selectedChallenge;
     return a.newAuthorization(goodName)
     .then((authz) => {
       assert.isObject(authz);
       assert.equal(authz.identifier.value, goodName);
+      assert.isTrue(authz.challenges.length > 0);
 
-      // TODO: 'reg' not defined
-      // assert.deepEqual(reg.contact, goodContact);
+      selectedChallenge = authz.challenges[0];
+      return a.respondToChallenge(selectedChallenge);
+    })
+    .then((challenge) => {
+      assert.deepEqual(challenge, selectedChallenge);
+    });
+  });
 
-      // Clear the nonces to cause auto-refresh
-      a.nonces = [];
+  it('issues a certificate', function() {
+    var a = new AcmeProtocol(privateKey, DIRECTORY_URL);
 
-      // assert.throws(() => { a.updateRegistration(null, reg); });
-
+    var csr = new Buffer('3000', 'hex');
+    return a.newCertificate(csr)
+    .then((cert) => {
+      assert.ok(Buffer.isBuffer(cert.body));
     });
   });
 
