@@ -110,7 +110,7 @@ function _setup(app, server) {
   });
 
   app.post('/challenge', function(req, res) {
-    res.status(200).end();
+    res.status(200).send(req.sig.payload);
   });
 }
 
