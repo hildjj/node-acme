@@ -34,10 +34,10 @@
     "yargs": "^3.29"
   },
   "devDependencies": {
-    "body-parser": "^1.14.2",
+    "body-parser": "^1.14",
     "chai": "^3.4",
     "del": "^2.0",
-    "express": "^4.13.3",
+    "express": "^4.13",
     "gulp": "^3.9",
     "gulp-coveralls": "^0.1",
     "gulp-documentation": "^2.1",
