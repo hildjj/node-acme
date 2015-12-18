@@ -5,8 +5,14 @@
 
 'use strict';
 
-var assert = require('chai').assert;
-var utils = require('../lib/utils');
+var path    = require('path');
+var assert  = require('chai').assert;
+var Promise = require('bluebird');
+var fs      = Promise.promisifyAll(require('fs'));
+var temp    = Promise.promisifyAll(require('temp'));
+temp.track();
+
+var utils   = require('../lib/utils');
 
 describe('utilities', function() {
   it('fromStandardB64', function() {
@@ -94,5 +100,36 @@ describe('utilities', function() {
   it('extract', function() {
     var a = { b: 1, c: 2, d: 3};
     assert.deepEqual(utils.extract(['b', 'c', 'e'], a), { b: 1, c: 2});
+  });
+
+  it('read/write JSON', function() {
+    return temp.mkdirAsync('acme')
+    .then(function(dir) {
+      var fn = path.join(dir, 'test.json');
+      var obj = {foo: 1};
+      return utils.writeJSON(fn, obj)
+      .then(function(orig) {
+        assert.ok(orig);
+        return utils.readJSON(fn);
+      })
+      .then(function(res) {
+        assert.deepEqual(res, obj);
+        return utils.readJSON();
+      })
+      .then(function(res) {
+        assert.ok(res == null);
+        return fs.writeFileAsync(fn + '2', '{"', 'utf8');
+      })
+      .then(function() {
+        return utils.readJSON(fn + '2');
+      })
+      .then(function(o) {
+        assert.isNull(o);
+        return utils.readJSON(fn + '3');
+      })
+      .then(function(o) {
+        assert.isNull(o);
+      });
+    });
   });
 });

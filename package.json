@@ -46,6 +46,7 @@
     "gulp-live-server": "0.0",
     "gulp-mocha": "^2.1",
     "gulp-util": "^3.0",
-    "open": "^0.0"
+    "open": "^0.0",
+    "temp": "^0.8"
   }
 }
