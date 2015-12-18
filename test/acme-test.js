@@ -14,9 +14,12 @@ var AcmeProtocol = require('../lib/acme');
 var PORT = 4567;
 var BASE = 'http://localhost:' + PORT;
 var PATHS = {
-  directory:       '/directory',
-  termsOfService:  '/terms-of-service',
-  newRegistration: '/new-reg'
+  directory:        '/directory',
+  termsOfService:   '/terms-of-service',
+  newRegistration:  '/new-reg',
+  registration:     '/reg/asdf',
+  newAuthorization: '/new-authz',
+  authorization:    '/authz/asdf',
 };
 var DIRECTORY = {
   'terms-of-service': BASE + PATHS.termsOfService,
@@ -24,6 +27,7 @@ var DIRECTORY = {
 };
 var DIRECTORY_URL = BASE + PATHS.directory;
 var NONCE = 'random';
+var KEY_SIZE = 512;
 
 function directoryLink(rel) {
   return '<' + DIRECTORY[rel] + '>;rel=' + rel;
@@ -56,7 +60,10 @@ mockServer.get(PATHS.directory, function(req, res) {
 });
 
 mockServer.post(PATHS.newRegistration, function(req, res) {
+  mockServer.registration = req.body;
+
   res.append('Link', directoryLink('terms-of-service'));
+  res.append('Location', BASE + PATHS.registration);
   var reg = {'field': 'thing'};
   if (req.body.contact) {
     reg.contact = req.body.contact;
@@ -64,16 +71,36 @@ mockServer.post(PATHS.newRegistration, function(req, res) {
   res.send(reg);
 });
 
-var mockServerInstance;
-before(() => { mockServerInstance = mockServer.listen(PORT); });
-after(() => { mockServerInstance.close(); });
+mockServer.post(PATHS.registration, function(req, res) {
+  mockServer.registration['contact'] = req.body['contact'];
+  mockServer.registration['agreement'] = req.body['agreement'];
+  res.send(mockServer.registration);
+});
 
-var privateKey = crypto.generateKey(2048);
+mockServer.post(PATHS.newAuthorization, function(req, res) {
+  // TODO
+});
+
+mockServer.post(PATHS.authorization, function(req, res) {
+  // TODO
+});
+
+var privateKey;
+var mockServerInstance;
+before(() => {
+  mockServerInstance = mockServer.listen(PORT);
+  return crypto.generateKey(KEY_SIZE)
+  .then((key) => { privateKey = key; });
+});
+after(() => { mockServerInstance.close(); });
 
 describe('ACME protocol', function() {
   it('creates', function() {
+    assert.throws(() => { var a = new AcmeProtocol(); });
+
     var a = new AcmeProtocol(privateKey, DIRECTORY_URL);
-    assert.ok(a);
+    assert.equal(a.privateKey, privateKey);
+    assert.equal(a.directoryURI, DIRECTORY_URL);
   });
 
   it('gets the directory', function() {
@@ -84,9 +111,10 @@ describe('ACME protocol', function() {
     });
   });
 
-  it('creates a registration', function() {
+  it('creates and updates a registration', function() {
     var badContact = 'not an array';
-    var goodContact = ['mailto:alpha@bravo.com'];
+    var goodContact = ['mailto:alpha@zulu.com'];
+    var secondContact = ['mailto:bravo@zulu.com'];
 
     var a = new AcmeProtocol(privateKey, DIRECTORY_URL);
 
@@ -95,12 +123,44 @@ describe('ACME protocol', function() {
     return a.newRegistration(goodContact)
     .then((reg) => {
       assert.isObject(reg);
-      assert.deepEquals(reg.contact, goodContact);
-    }, () => { throw new Error('wtf'); });
+      assert.deepEqual(reg.contact, goodContact);
+
+      // Clear the nonces to cause auto-refresh
+      a.nonces = [];
+
+      assert.throws(() => { a.updateRegistration(null, reg); });
+
+      var url = AcmeProtocol.getLocation(reg);
+      reg.agreement = AcmeProtocol.getLink(reg, 'terms-of-service');
+      reg.contact = secondContact;
+      return a.updateRegistration(url, reg);
+    })
+    .then((reg) => {
+      assert.isObject(reg);
+      assert.deepEqual(reg.contact, secondContact);
+    });
   });
 
-  it('creates an authorization', function() {
-    // TODO
+  it('creates an authorization and responds to a challenge', function() {
+    var badName = "not!a!name";
+    var goodName = "not-example.com";
+    var a = new AcmeProtocol(privateKey, DIRECTORY_URL);
+
+    assert.throws(() => { a.newAuthorization(badName); });
+
+    return a.newAuthorization(goodName)
+    .then((authz) => {
+      assert.isObject(authz);
+      assert.equal(authz.identifier.value, goodName);
+
+      assert.deepEqual(reg.contact, goodContact);
+
+      // Clear the nonces to cause auto-refresh
+      a.nonces = [];
+
+      assert.throws(() => { a.updateRegistration(null, reg); });
+
+    })
   });
 
 });
