@@ -27,6 +27,7 @@
   "homepage": "https://github.com/hildjj/node-acme#readme",
   "dependencies": {
     "bluebird": "^3.0",
+    "native-dns": "^0.7.0",
     "node-jose": "^0.6",
     "npmlog": "^2.0",
     "request-debug": "^0.2",
@@ -47,6 +48,6 @@
     "gulp-mocha": "^2.1",
     "gulp-util": "^3.0",
     "open": "^0.0",
-    "temp": "^0.8"
+    "temp": "^0.8.3"
   }
 }
