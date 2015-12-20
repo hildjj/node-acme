@@ -27,6 +27,7 @@
   "homepage": "https://github.com/hildjj/node-acme#readme",
   "dependencies": {
     "bluebird": "^3.0",
+    "express": "^4.13",
     "node-jose": "^0.6",
     "npmlog": "^2.0",
     "request-debug": "^0.2",
@@ -37,7 +38,6 @@
     "body-parser": "^1.14",
     "chai": "^3.4",
     "del": "^2.0",
-    "express": "^4.13",
     "gulp": "^3.9",
     "gulp-coveralls": "^0.1",
     "gulp-documentation": "^2.1",
