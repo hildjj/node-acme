@@ -10,9 +10,9 @@ var crypto       = require('../lib/crypto-utils');
 var AcmeProtocol = require('../lib/acme');
 var server       = require('./fixtures/server');
 
-var PORT = 4567;
-var BASE = 'http://localhost:' + PORT;
-var PATHS = {
+const PORT = 4567;
+const BASE = 'http://localhost:' + PORT;
+const PATHS = {
   directory:        '/directory',
   termsOfService:   '/terms-of-service',
   newRegistration:  '/new-reg',
@@ -20,19 +20,21 @@ var PATHS = {
   newAuthorization: '/new-authz',
   authorization:    '/authz/asdf'
 };
-var DIRECTORY_URL = BASE + PATHS.directory;
-var KEY_SIZE = 512;
+const DIRECTORY_URL = BASE + PATHS.directory;
+const KEY_SIZE = 512;
 
 var privateKey;
 var mockServerInstance;
-before(() => {
-  mockServerInstance = new server(PORT).start();
-  return crypto.generateKey(KEY_SIZE)
-  .then((key) => { privateKey = key; });
-});
-after(() => { mockServerInstance.stop(); });
 
 describe('ACME protocol', function() {
+  before(() => {
+    mockServerInstance = new server(PORT).start();
+    return crypto.generateKey(KEY_SIZE)
+    .then((key) => { privateKey = key; });
+  });
+
+  after(() => { mockServerInstance.stop(); });
+
   it('creates', function() {
     assert.throws(() => { new AcmeProtocol(); });
 
