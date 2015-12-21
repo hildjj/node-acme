@@ -17,7 +17,7 @@ describe('crypto utilities', function() {
         'kty', 'kid',
         'e', 'n', 'd',
         'p', 'q', 'dp', 'dq', 'qi'], priv.toJSON(true)));
-      var priv_pem = cutils.privateKeyToPem(priv);
+      var priv_pem = priv.toPEM(true);
       assert.match(priv_pem, /^-----BEGIN RSA PRIVATE KEY-----$/m);
       return cutils.importPemPrivateKey(priv_pem)
       .then(function(ipriv) {
