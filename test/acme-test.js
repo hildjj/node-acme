@@ -89,9 +89,12 @@ describe('ACME protocol', function() {
 
     assert.throws(() => { a.newAuthorization(badName); });
 
+    var url;
     var selectedChallenge;
     return a.newAuthorization(goodName)
     .then((authz) => {
+      url = AcmeProtocol.getLocation(authz);
+      console.log('url:', url);
       assert.isObject(authz);
       assert.equal(authz.identifier.value, goodName);
       assert.isTrue(authz.challenges.length > 0);
@@ -101,6 +104,10 @@ describe('ACME protocol', function() {
     })
     .then((challenge) => {
       assert.deepEqual(challenge, selectedChallenge);
+      return a.checkAuthorizationStatus(url);
+    })
+    .then(status => {
+      assert.equal(status, 'valid');
     });
   });
 
