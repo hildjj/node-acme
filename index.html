@@ -113,100 +113,75 @@
                   #write
                 </a>
               <a
-                href='#b64dec'
+                href='#AcmeUtils'
                 class='block bold'>
-                b64dec
+                AcmeUtils
               </a>
-              <a
-                href='#b64enc'
-                class='block bold'>
-                b64enc
-              </a>
-              <a
-                href='#extend'
-                class='block bold'>
-                extend
-              </a>
-              <a
-                href='#extract'
-                class='block bold'>
-                extract
-              </a>
-              <a
-                href='#fieldsPresent'
-                class='block bold'>
-                fieldsPresent
-              </a>
-              <a
-                href='#fromStandardB64'
-                class='block bold'>
-                fromStandardB64
-              </a>
-              <a
-                href='#generateCSR'
-                class='block bold'>
-                generateCSR
-              </a>
-              <a
-                href='#generateKey'
-                class='block bold'>
-                generateKey
-              </a>
-              <a
-                href='#importPemPrivateKey'
-                class='block bold'>
-                importPemPrivateKey
-              </a>
-              <a
-                href='#isB64String'
-                class='block bold'>
-                isB64String
-              </a>
-              <a
-                href='#keyFingerprint'
-                class='block bold'>
-                keyFingerprint
-              </a>
-              <a
-                href='#readJSON'
-                class='block bold'>
-                readJSON
-              </a>
-              <a
-                href='#selfSigned'
-                class='block bold'>
-                selfSigned
-              </a>
-              <a
-                href='#sha256'
-                class='block bold'>
-                sha256
-              </a>
-              <a
-                href='#toStandardB64'
-                class='block bold'>
-                toStandardB64
-              </a>
-              <a
-                href='#validJWK'
-                class='block bold'>
-                validJWK
-              </a>
-              <a
-                href='#validSignature'
-                class='block bold'>
-                validSignature
-              </a>
-              <a
-                href='#verifiedCommonName'
-                class='block bold'>
-                verifiedCommonName
-              </a>
-              <a
-                href='#writeJSON'
-                class='block bold'>
-                writeJSON
-              </a>
+                <a
+                  href='#AcmeUtils.b64dec'
+                  class='regular block'>
+                  .b64dec
+                </a>
+                <a
+                  href='#AcmeUtils.b64enc'
+                  class='regular block'>
+                  .b64enc
+                </a>
+                <a
+                  href='#AcmeUtils.extend'
+                  class='regular block'>
+                  .extend
+                </a>
+                <a
+                  href='#AcmeUtils.extract'
+                  class='regular block'>
+                  .extract
+                </a>
+                <a
+                  href='#AcmeUtils.fieldsPresent'
+                  class='regular block'>
+                  .fieldsPresent
+                </a>
+                <a
+                  href='#AcmeUtils.fromStandardB64'
+                  class='regular block'>
+                  .fromStandardB64
+                </a>
+                <a
+                  href='#AcmeUtils.isB64String'
+                  class='regular block'>
+                  .isB64String
+                </a>
+                <a
+                  href='#AcmeUtils.keyFingerprint'
+                  class='regular block'>
+                  .keyFingerprint
+                </a>
+                <a
+                  href='#AcmeUtils.readJSON'
+                  class='regular block'>
+                  .readJSON
+                </a>
+                <a
+                  href='#AcmeUtils.toStandardB64'
+                  class='regular block'>
+                  .toStandardB64
+                </a>
+                <a
+                  href='#AcmeUtils.validJWK'
+                  class='regular block'>
+                  .validJWK
+                </a>
+                <a
+                  href='#AcmeUtils.validSignature'
+                  class='regular block'>
+                  .validSignature
+                </a>
+                <a
+                  href='#AcmeUtils.writeJSON'
+                  class='regular block'>
+                  .writeJSON
+                </a>
               <a
                 href='#CLI'
                 class='block bold'>
@@ -216,26 +191,6 @@
                   href='#CLI.constructor'
                   class='regular block'>
                   #constructor
-                </a>
-              <a
-                href='#HTTP01validator'
-                class='block bold'>
-                HTTP01validator
-              </a>
-                <a
-                  href='#HTTP01validator.constructor'
-                  class='regular block'>
-                  #constructor
-                </a>
-                <a
-                  href='#HTTP01validator.start'
-                  class='regular block'>
-                  #start
-                </a>
-                <a
-                  href='#HTTP01validator.stop'
-                  class='regular block'>
-                  #stop
                 </a>
               <a
                 href='#DNS01Validator'
@@ -254,6 +209,26 @@
                 </a>
                 <a
                   href='#DNS01Validator.stop'
+                  class='regular block'>
+                  #stop
+                </a>
+              <a
+                href='#HTTP01validator'
+                class='block bold'>
+                HTTP01validator
+              </a>
+                <a
+                  href='#HTTP01validator.constructor'
+                  class='regular block'>
+                  #constructor
+                </a>
+                <a
+                  href='#HTTP01validator.start'
+                  class='regular block'>
+                  #start
+                </a>
+                <a
+                  href='#HTTP01validator.stop'
                   class='regular block'>
                   #stop
                 </a>
@@ -278,9 +253,34 @@
                   #stop
                 </a>
               <a
-                href='#utils'
+                href='#generateCSR'
                 class='block bold'>
-                utils
+                generateCSR
+              </a>
+              <a
+                href='#generateKey'
+                class='block bold'>
+                generateKey
+              </a>
+              <a
+                href='#importPemPrivateKey'
+                class='block bold'>
+                importPemPrivateKey
+              </a>
+              <a
+                href='#selfSigned'
+                class='block bold'>
+                selfSigned
+              </a>
+              <a
+                href='#sha256'
+                class='block bold'>
+                sha256
+              </a>
+              <a
+                href='#verifiedCommonName'
+                class='block bold'>
+                verifiedCommonName
               </a>
           </div>
         </div>
@@ -291,7 +291,7 @@
   <h2 id='AcmeProtocol' class='mt0'>
     AcmeProtocol<span class='gray'>(privateKey, directoryURI)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L63-L333'><code>lib/acme.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L63-L333'><code>lib/acme.js</code></a></p>
   <p>An AcmeProtocol represents the interactions of a single key pair with a single
 ACME server.  The the methods to map fairly directly to the endpoints that an
 ACME server exposes.</p>
@@ -328,7 +328,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.getLink' class='mt0'>
                 getLink<span class='gray'>(obj, [name])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L89-L97'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L89-L97'><code>lib/acme.js</code></a></p>
               <p>Get the link relation of the given name from the object returned from
             an AcmeProtocol request.</p>
             
@@ -380,7 +380,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.getLocation' class='mt0'>
                 getLocation<span class='gray'>(obj)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L106-L111'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L106-L111'><code>lib/acme.js</code></a></p>
               <p>Get the location of the object returned from an AcmeProtocol request.</p>
             
                 <h4>Parameters</h4>
@@ -424,7 +424,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.constructor' class='mt0'>
                 constructor<span class='gray'>(privateKey, [directoryURI])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L70-L77'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L70-L77'><code>lib/acme.js</code></a></p>
               <p>Create an AcmeClient</p>
             
                 <h4>Parameters</h4>
@@ -469,7 +469,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.directory' class='mt0'>
                 directory<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L187-L203'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L187-L203'><code>lib/acme.js</code></a></p>
               <p>Get the ACME directory object.</p>
             
                   <h4>Returns</h4>
@@ -497,7 +497,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.get' class='mt0'>
                 get<span class='gray'>(uri)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L239-L245'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L239-L245'><code>lib/acme.js</code></a></p>
               <p>Retrieve a JSON document.</p>
             
                 <h4>Parameters</h4>
@@ -535,7 +535,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.newAuthorization' class='mt0'>
                 newAuthorization<span class='gray'>(domain)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L270-L293'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L270-L293'><code>lib/acme.js</code></a></p>
               <p>Call <code>new-authz</code></p>
             
                 <h4>Parameters</h4>
@@ -573,7 +573,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.newCertificate' class='mt0'>
                 newCertificate<span class='gray'>(csr)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L319-L332'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L319-L332'><code>lib/acme.js</code></a></p>
               <p>Call <code>new-cert</code></p>
             
                 <h4>Parameters</h4>
@@ -611,7 +611,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.newRegistration' class='mt0'>
                 newRegistration<span class='gray'>(contacts, [agreement])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L212-L231'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L212-L231'><code>lib/acme.js</code></a></p>
               <p>Call <code>new-reg</code></p>
             
                 <h4>Parameters</h4>
@@ -656,7 +656,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.respondToChallenge' class='mt0'>
                 respondToChallenge<span class='gray'>(challenge)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L301-L311'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L301-L311'><code>lib/acme.js</code></a></p>
               <p>Respond to a challenge.</p>
             
                 <h4>Parameters</h4>
@@ -694,7 +694,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.updateRegistration' class='mt0'>
                 updateRegistration<span class='gray'>(uri, registration)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/acme.js#L256-L262'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L256-L262'><code>lib/acme.js</code></a></p>
               <p>Update a registration with new information.</p>
             
                 <h4>Parameters</h4>
@@ -737,7 +737,7 @@ an AcmeProtocol request.</p>
   <h2 id='' class='mt0'>
     <span class='gray'></span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/crypto-utils.js#L13-L13'><code>lib/crypto-utils.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L13-L13'><code>lib/crypto-utils.js</code></a></p>
   <p>Crypto Utilities</p>
 
 </section>
@@ -745,7 +745,7 @@ an AcmeProtocol request.</p>
   <h2 id='AcmeConfig' class='mt0'>
     AcmeConfig<span class='gray'>(filename, override)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/config.js#L28-L103'><code>lib/config.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L28-L103'><code>lib/config.js</code></a></p>
   <p>Configuration file for ACME.</p>
 
     <h4>Parameters</h4>
@@ -780,7 +780,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.constructor' class='mt0'>
                 constructor<span class='gray'>(filename, [override])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/config.js#L37-L41'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L37-L41'><code>lib/config.js</code></a></p>
               <p>Create a config, with the given filename.  Make sure to call read, and
             wait for its promise before using any of the other methods!</p>
             
@@ -826,7 +826,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.generatePrivateKey' class='mt0'>
                 generatePrivateKey<span class='gray'>([bits])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/config.js#L92-L98'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L92-L98'><code>lib/config.js</code></a></p>
               <p>Generate a new private key.  Saves the config file on success.</p>
             
                 <h4>Parameters</h4>
@@ -864,7 +864,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.importPrivateKey' class='mt0'>
                 importPrivateKey<span class='gray'>(filename)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/config.js#L75-L84'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L75-L84'><code>lib/config.js</code></a></p>
               <p>Import a private key from a PEM file. Saves the config file on success.</p>
             
                 <h4>Parameters</h4>
@@ -902,7 +902,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.read' class='mt0'>
                 read<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/config.js#L48-L54'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L48-L54'><code>lib/config.js</code></a></p>
               <p>Read the file.  Safe to call with a non-existant file or null.</p>
             
                   <h4>Returns</h4>
@@ -930,7 +930,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.write' class='mt0'>
                 write<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/config.js#L61-L67'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L61-L67'><code>lib/config.js</code></a></p>
               <p>Write the file.</p>
             
                   <h4>Returns</h4>
@@ -945,525 +945,550 @@ wait for its promise before using any of the other methods!</p>
         </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='b64dec' class='mt0'>
-    b64dec<span class='gray'>(str)</span>
+  <h2 id='AcmeUtils' class='mt0'>
+    AcmeUtils<span class='gray'>(x)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L60-L62'><code>lib/utils.js</code></a></p>
-  <p>Base64url decode a string</p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L15-L224'><code>lib/utils.js</code></a></p>
+  <p>Utilities</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li><code>Base64</code> <strong>str</strong>
+        <li> <strong>x</strong>
           :
           <div class='force-inline'>
-            <p>Base64url</p>
-
+            
           </div>
         </li>
     </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Bytes decoded</p>
+      <h4>Static members</h4>
+        <div class='collapsible' id='AcmeUtils.b64dec'>
+          <a href='#AcmeUtils.b64dec'>
+            <code>
+              .b64dec<span class='gray'>(str)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Base64url decode a string</p>
 
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='b64enc' class='mt0'>
-    b64enc<span class='gray'>(buffer)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L50-L52'><code>lib/utils.js</code></a></p>
-  <p>Base64url encode a buffer</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code> <strong>buffer</strong>
-          :
-          <div class='force-inline'>
-            <p>Encode these bytes</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.b64dec' class='mt0'>
+                b64dec<span class='gray'>(str)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L59-L61'><code>lib/utils.js</code></a></p>
+              <p>Base64url decode a string</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>Base64</code> <strong>str</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Base64url</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Bytes decoded</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Base64url</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.b64enc'>
+          <a href='#AcmeUtils.b64enc'>
+            <code>
+              .b64enc<span class='gray'>(buffer)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Base64url encode a buffer</p>
 
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='extend' class='mt0'>
-    extend<span class='gray'>(objects)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L150-L164'><code>lib/utils.js</code></a></p>
-  <p>Copy all of the properties of the specified objects into a single,
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.b64enc' class='mt0'>
+                b64enc<span class='gray'>(buffer)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L49-L51'><code>lib/utils.js</code></a></p>
+              <p>Base64url encode a buffer</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code> <strong>buffer</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Encode these bytes</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Base64url</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='AcmeUtils.extend'>
+          <a href='#AcmeUtils.extend'>
+            <code>
+              .extend<span class='gray'>(objects)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Copy all of the properties of the specified objects into a single,
 new object.</p>
 
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>objects</strong>
-          :
-          <div class='force-inline'>
-            <p>The original objects</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.extend' class='mt0'>
+                extend<span class='gray'>(objects)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L149-L164'><code>lib/utils.js</code></a></p>
+              <p>Copy all of the properties of the specified objects into a single,
+            new object.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>objects</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The original objects</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The new object</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>The new object</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.extract'>
+          <a href='#AcmeUtils.extract'>
+            <code>
+              .extract<span class='gray'>(fields, object)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Extract the given fields, if they exist from the given object.</p>
 
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='extract' class='mt0'>
-    extract<span class='gray'>(fields, object)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L173-L183'><code>lib/utils.js</code></a></p>
-  <p>Extract the given fields, if they exist from the given object.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>fields</strong>
-          :
-          <div class='force-inline'>
-            <p>The fields to extract, as an array of strings</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.extract' class='mt0'>
+                extract<span class='gray'>(fields, object)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L173-L183'><code>lib/utils.js</code></a></p>
+              <p>Extract the given fields, if they exist from the given object.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>fields</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The fields to extract, as an array of strings</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>object</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The object from which to extract</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The extracted fields, as a new object</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>object</strong>
-          :
-          <div class='force-inline'>
-            <p>The object from which to extract</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.fieldsPresent'>
+          <a href='#AcmeUtils.fieldsPresent'>
+            <code>
+              .fieldsPresent<span class='gray'>(fields, object)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Are the given fields set on the given object?</p>
 
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.fieldsPresent' class='mt0'>
+                fieldsPresent<span class='gray'>(fields, object)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L78-L85'><code>lib/utils.js</code></a></p>
+              <p>Are the given fields set on the given object?</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>fields</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Fields to check</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>object</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>check this</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Are all of the fields there?</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>The extracted fields, as a new object</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.fromStandardB64'>
+          <a href='#AcmeUtils.fromStandardB64'>
+            <code>
+              .fromStandardB64<span class='gray'>(x)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Translate to Base64url</p>
 
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='fieldsPresent' class='mt0'>
-    fieldsPresent<span class='gray'>(fields, object)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L79-L86'><code>lib/utils.js</code></a></p>
-  <p>Are the given fields set on the given object?</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code> <strong>fields</strong>
-          :
-          <div class='force-inline'>
-            <p>Fields to check</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.fromStandardB64' class='mt0'>
+                fromStandardB64<span class='gray'>(x)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L23-L25'><code>lib/utils.js</code></a></p>
+              <p>Translate to Base64url</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>x</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Base64</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Base64url</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>object</strong>
-          :
-          <div class='force-inline'>
-            <p>check this</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.isB64String'>
+          <a href='#AcmeUtils.isB64String'>
+            <code>
+              .isB64String<span class='gray'>(x)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Is the string valid Base64url?</p>
 
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.isB64String' class='mt0'>
+                isB64String<span class='gray'>(x)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L68-L70'><code>lib/utils.js</code></a></p>
+              <p>Is the string valid Base64url?</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>x</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Check this</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>true if valid</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Are all of the fields there?</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='fromStandardB64' class='mt0'>
-    fromStandardB64<span class='gray'>(x)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L24-L26'><code>lib/utils.js</code></a></p>
-  <p>Translate to Base64url</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>x</strong>
-          :
-          <div class='force-inline'>
-            <p>Base64</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Base64url</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='generateCSR' class='mt0'>
-    generateCSR<span class='gray'>(keyPair, identifier)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/crypto-utils.js#L103-L116'><code>lib/crypto-utils.js</code></a></p>
-  <p>Generate a Certificate Signing Request</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>Ojbect</code> <strong>keyPair</strong>
-          :
-          <div class='force-inline'>
-            <p>{privateKey, publicKey}</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>identifier</strong>
-          :
-          <div class='force-inline'>
-            <p>Common Name (CN) for the certificate</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Base64-encoded CSR</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='generateKey' class='mt0'>
-    generateKey<span class='gray'>(bits)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/crypto-utils.js#L59-L62'><code>lib/crypto-utils.js</code></a></p>
-  <p>Generate a public/private key pair.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>Integer</code> <strong>bits</strong>
-          :
-          <div class='force-inline'>
-            <p>Number of bits in the key</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Promise(privateKey)</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='importPemPrivateKey' class='mt0'>
-    importPemPrivateKey<span class='gray'>(pem)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/crypto-utils.js#L70-L72'><code>lib/crypto-utils.js</code></a></p>
-  <p>Parse PEM-encoded private key.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>pem</strong>
-          :
-          <div class='force-inline'>
-            <p>decode this</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Promise(privateKey)</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='isB64String' class='mt0'>
-    isB64String<span class='gray'>(x)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L69-L71'><code>lib/utils.js</code></a></p>
-  <p>Is the string valid Base64url?</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>x</strong>
-          :
-          <div class='force-inline'>
-            <p>Check this</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>true if valid</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='keyFingerprint' class='mt0'>
-    keyFingerprint<span class='gray'>(jwk)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L132-L141'><code>lib/utils.js</code></a></p>
-  <p>A simple, non-standard fingerprint for a JWK,
+        </div>
+        <div class='collapsible' id='AcmeUtils.keyFingerprint'>
+          <a href='#AcmeUtils.keyFingerprint'>
+            <code>
+              .keyFingerprint<span class='gray'>(jwk)</span>
+            </code>
+            <div class='force-inline'>
+              <p>A simple, non-standard fingerprint for a JWK,
 just so that we don&apos;t have to store objects</p>
 
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>jwk</strong>
-          :
-          <div class='force-inline'>
-            <p>Key</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.keyFingerprint' class='mt0'>
+                keyFingerprint<span class='gray'>(jwk)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L131-L140'><code>lib/utils.js</code></a></p>
+              <p>A simple, non-standard fingerprint for a JWK,
+            just so that we don&apos;t have to store objects</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>jwk</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Key</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>[description]</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>[description]</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='readJSON' class='mt0'>
-    readJSON<span class='gray'>([filename])</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L193-L210'><code>lib/utils.js</code></a></p>
-  <p>Read a JSON file.  Do not fail if the file cannot be read, doesn&apos;t exist,
+        </div>
+        <div class='collapsible' id='AcmeUtils.readJSON'>
+          <a href='#AcmeUtils.readJSON'>
+            <code>
+              .readJSON<span class='gray'>([filename])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Read a JSON file.  Do not fail if the file cannot be read, doesn&apos;t exist,
 has invalid JSON, etc.</p>
 
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> <strong>filename</strong>
-          :
-          <div class='force-inline'>
-            <p>The name of the file</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.readJSON' class='mt0'>
+                readJSON<span class='gray'>([filename])</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L193-L210'><code>lib/utils.js</code></a></p>
+              <p>Read a JSON file.  Do not fail if the file cannot be read, doesn&apos;t exist,
+            has invalid JSON, etc.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> <strong>filename</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The name of the file</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code><<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON</a></code>></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Fulfilled with the JSON, or null if the file
+            couldn&apos;t be read.</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code><<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON</a></code>></code>
-      :
-      <div class='force-inline'>
-        <p>Fulfilled with the JSON, or null if the file
-couldn&apos;t be read.</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.toStandardB64'>
+          <a href='#AcmeUtils.toStandardB64'>
+            <code>
+              .toStandardB64<span class='gray'>(x)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Translate from Base64url</p>
 
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='selfSigned' class='mt0'>
-    selfSigned<span class='gray'>(name, privateKey)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/crypto-utils.js#L148-L172'><code>lib/crypto-utils.js</code></a></p>
-  <p>Create a self-signed certificate with a given name and public key</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>name</strong>
-          :
-          <div class='force-inline'>
-            <p>Domain name to included in the cert</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.toStandardB64' class='mt0'>
+                toStandardB64<span class='gray'>(x)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L32-L42'><code>lib/utils.js</code></a></p>
+              <p>Translate from Base64url</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>x</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Base64url</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Base64</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>privateKey</strong>
-          :
-          <div class='force-inline'>
-            <p>JWK private key.  Public key will be put in the
-cert; the private key will be used to sign it.</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.validJWK'>
+          <a href='#AcmeUtils.validJWK'>
+            <code>
+              .validJWK<span class='gray'>(jwk)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Is the given object a valid JSON Web Key (JWK)?</p>
 
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.validJWK' class='mt0'>
+                validJWK<span class='gray'>(jwk)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L93-L106'><code>lib/utils.js</code></a></p>
+              <p>Is the given object a valid JSON Web Key (JWK)?</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>jwk</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The key to check</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>true if valid</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>PEM-encoded certificate</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.validSignature'>
+          <a href='#AcmeUtils.validSignature'>
+            <code>
+              .validSignature<span class='gray'>(sig)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Is the signature valid?</p>
 
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='sha256' class='mt0'>
-    sha256<span class='gray'>(input)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/crypto-utils.js#L49-L51'><code>lib/crypto-utils.js</code></a></p>
-  <p>Compute the SHA-256 digest of a buffer.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code> <strong>input</strong>
-          :
-          <div class='force-inline'>
-            <p>Buffer to be digested</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.validSignature' class='mt0'>
+                validSignature<span class='gray'>(sig)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L114-L122'><code>lib/utils.js</code></a></p>
+              <p>Is the signature valid?</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>sig</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Object to check</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>true if valid</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>The digest value</p>
+        </div>
+        <div class='collapsible' id='AcmeUtils.writeJSON'>
+          <a href='#AcmeUtils.writeJSON'>
+            <code>
+              .writeJSON<span class='gray'>(filename, obj)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Write an object to a file, serialized as JSON.</p>
 
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='toStandardB64' class='mt0'>
-    toStandardB64<span class='gray'>(x)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L33-L43'><code>lib/utils.js</code></a></p>
-  <p>Translate from Base64url</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>x</strong>
-          :
-          <div class='force-inline'>
-            <p>Base64url</p>
-
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeUtils.writeJSON' class='mt0'>
+                writeJSON<span class='gray'>(filename, obj)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L219-L223'><code>lib/utils.js</code></a></p>
+              <p>Write an object to a file, serialized as JSON.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>filename</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>File to write to</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>obj</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The object to write</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code><<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Fulfilled when the file is written with <code>obj</code>.</p>
+            
+                  </div>
+            </section>
           </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Base64</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='validJWK' class='mt0'>
-    validJWK<span class='gray'>(jwk)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L94-L107'><code>lib/utils.js</code></a></p>
-  <p>Is the given object a valid JSON Web Key (JWK)?</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>jwk</strong>
-          :
-          <div class='force-inline'>
-            <p>The key to check</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>true if valid</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='validSignature' class='mt0'>
-    validSignature<span class='gray'>(sig)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L115-L123'><code>lib/utils.js</code></a></p>
-  <p>Is the signature valid?</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>sig</strong>
-          :
-          <div class='force-inline'>
-            <p>Object to check</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>true if valid</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='verifiedCommonName' class='mt0'>
-    verifiedCommonName<span class='gray'>(csr_b64)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/crypto-utils.js#L124-L138'><code>lib/crypto-utils.js</code></a></p>
-  <p>Verify a CSR, and extract the common name from it.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>csr_b64</strong>
-          :
-          <div class='force-inline'>
-            <p>Base64-encoded CSR</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Common Name (CN) or false on error</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='writeJSON' class='mt0'>
-    writeJSON<span class='gray'>(filename, obj)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L219-L223'><code>lib/utils.js</code></a></p>
-  <p>Write an object to a file, serialized as JSON.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>filename</strong>
-          :
-          <div class='force-inline'>
-            <p>File to write to</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>obj</strong>
-          :
-          <div class='force-inline'>
-            <p>The object to write</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code><<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>></code>
-      :
-      <div class='force-inline'>
-        <p>Fulfilled when the file is written with <code>obj</code>.</p>
-
-      </div>
+        </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='CLI' class='mt0'>
     CLI<span class='gray'>(args)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/cli.js#L41-L280'><code>lib/cli.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/cli.js#L41-L280'><code>lib/cli.js</code></a></p>
   <p>A Command Line Interface for the ACME protocol.</p>
 
     <h4>Parameters</h4>
@@ -1491,7 +1516,7 @@ cert; the private key will be used to sign it.</p>
               <h2 id='CLI.constructor' class='mt0'>
                 constructor<span class='gray'>([args])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/cli.js#L49-L117'><code>lib/cli.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/cli.js#L49-L117'><code>lib/cli.js</code></a></p>
               <p>Create a CLI.</p>
             
                 <h4>Parameters</h4>
@@ -1517,155 +1542,10 @@ cert; the private key will be used to sign it.</p>
         </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='HTTP01validator' class='mt0'>
-    HTTP01validator<span class='gray'>(domain, challenge, port)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-http.js#L19-L69'><code>lib/validate-http.js</code></a></p>
-  <p>An HTTP01validator performs the client-side half of the ACME &apos;http-01&apos;
-validation.  Based on a challenge, it creates the string specified by the
-protocol and returns it in response to a query for the proper resource.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li> <strong>domain</strong>
-          :
-          <div class='force-inline'>
-            
-          </div>
-        </li>
-        <li> <strong>challenge</strong>
-          :
-          <div class='force-inline'>
-            
-          </div>
-        </li>
-        <li> <strong>port</strong>
-          :
-          <div class='force-inline'>
-            
-          </div>
-        </li>
-    </ul>
-      <h4>Instance members</h4>
-        <div class='collapsible' id='HTTP01validator.constructor'>
-          <a href='#HTTP01validator.constructor'>
-            <code>
-              #constructor<span class='gray'>(domain, challenge, [port])</span>
-            </code>
-            <div class='force-inline'>
-              <p>Create a validator</p>
-
-            </div>
-          </a>
-          <div class='collapser border px2'>
-            <section class='py2 clearfix'>
-              <h2 id='HTTP01validator.constructor' class='mt0'>
-                constructor<span class='gray'>(domain, challenge, [port])</span>
-              </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-http.js#L29-L48'><code>lib/validate-http.js</code></a></p>
-              <p>Create a validator</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>domain</strong>
-                      :
-                      <div class='force-inline'>
-                        <p>The domain to listen for</p>
-            
-                      </div>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>challenge</strong>
-                      :
-                      <div class='force-inline'>
-                        <p>The challenge returned from an authz request</p>
-            
-                      </div>
-                    </li>
-                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>]</code> <strong>port</strong>
-                      :
-                      <div class='force-inline'>
-                        <p>Port to listen on (default: 80)</p>
-            
-                      </div>
-                    </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code><a href="#HTTP01validator">HTTP01validator</a></code></code>
-                  :
-                  <div class='force-inline'>
-                    <p>Created object</p>
-            
-                  </div>
-                <h4>Throws</h4>
-                <ul>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError">TypeError</a></code>: <div class='force-inline'><p>Invalid challenge</p>
-            </div></li>
-                </ul>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='HTTP01validator.start'>
-          <a href='#HTTP01validator.start'>
-            <code>
-              #start<span class='gray'></span>
-            </code>
-            <div class='force-inline'>
-              <p>Start the server</p>
-
-            </div>
-          </a>
-          <div class='collapser border px2'>
-            <section class='py2 clearfix'>
-              <h2 id='HTTP01validator.start' class='mt0'>
-                start<span class='gray'></span>
-              </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-http.js#L55-L58'><code>lib/validate-http.js</code></a></p>
-              <p>Start the server</p>
-            
-                  <h4>Returns</h4>
-                  <code><code><a href="#HTTP01validator">HTTP01validator</a></code></code>
-                  :
-                  <div class='force-inline'>
-                    <p>Object instance</p>
-            
-                  </div>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='HTTP01validator.stop'>
-          <a href='#HTTP01validator.stop'>
-            <code>
-              #stop<span class='gray'></span>
-            </code>
-            <div class='force-inline'>
-              <p>Stop the server</p>
-
-            </div>
-          </a>
-          <div class='collapser border px2'>
-            <section class='py2 clearfix'>
-              <h2 id='HTTP01validator.stop' class='mt0'>
-                stop<span class='gray'></span>
-              </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-http.js#L65-L68'><code>lib/validate-http.js</code></a></p>
-              <p>Stop the server</p>
-            
-                  <h4>Returns</h4>
-                  <code><code><a href="#HTTP01validator">HTTP01validator</a></code></code>
-                  :
-                  <div class='force-inline'>
-                    <p>Object instance</p>
-            
-                  </div>
-            </section>
-          </div>
-        </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='DNS01Validator' class='mt0'>
     DNS01Validator<span class='gray'>(domain, challenge, port)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-dns.js#L20-L82'><code>lib/validate-dns.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L20-L82'><code>lib/validate-dns.js</code></a></p>
   <p>A DNS01Validator performs the client-side half of the ACME &apos;dns-01&apos;
 validation.  Based on a challenge, it creates the TXT record specified by the
 protocol and returns it in response to a query for the proper domain name.</p>
@@ -1707,7 +1587,7 @@ protocol and returns it in response to a query for the proper domain name.</p>
               <h2 id='DNS01Validator.constructor' class='mt0'>
                 constructor<span class='gray'>(domain, challenge, port)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-dns.js#L30-L61'><code>lib/validate-dns.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L30-L61'><code>lib/validate-dns.js</code></a></p>
               <p>Create a DNS validation server.</p>
             
                 <h4>Parameters</h4>
@@ -1764,7 +1644,7 @@ protocol and returns it in response to a query for the proper domain name.</p>
               <h2 id='DNS01Validator.start' class='mt0'>
                 start<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-dns.js#L68-L71'><code>lib/validate-dns.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L68-L71'><code>lib/validate-dns.js</code></a></p>
               <p>Start the server</p>
             
                   <h4>Returns</h4>
@@ -1792,7 +1672,7 @@ protocol and returns it in response to a query for the proper domain name.</p>
               <h2 id='DNS01Validator.stop' class='mt0'>
                 stop<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-dns.js#L78-L81'><code>lib/validate-dns.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L78-L81'><code>lib/validate-dns.js</code></a></p>
               <p>Stop the server</p>
             
                   <h4>Returns</h4>
@@ -1807,10 +1687,155 @@ protocol and returns it in response to a query for the proper domain name.</p>
         </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='HTTP01validator' class='mt0'>
+    HTTP01validator<span class='gray'>(domain, challenge, port)</span>
+  </h2>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L19-L69'><code>lib/validate-http.js</code></a></p>
+  <p>An HTTP01validator performs the client-side half of the ACME &apos;http-01&apos;
+validation.  Based on a challenge, it creates the string specified by the
+protocol and returns it in response to a query for the proper resource.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>domain</strong>
+          :
+          <div class='force-inline'>
+            
+          </div>
+        </li>
+        <li> <strong>challenge</strong>
+          :
+          <div class='force-inline'>
+            
+          </div>
+        </li>
+        <li> <strong>port</strong>
+          :
+          <div class='force-inline'>
+            
+          </div>
+        </li>
+    </ul>
+      <h4>Instance members</h4>
+        <div class='collapsible' id='HTTP01validator.constructor'>
+          <a href='#HTTP01validator.constructor'>
+            <code>
+              #constructor<span class='gray'>(domain, challenge, [port])</span>
+            </code>
+            <div class='force-inline'>
+              <p>Create a validator</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='HTTP01validator.constructor' class='mt0'>
+                constructor<span class='gray'>(domain, challenge, [port])</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L29-L48'><code>lib/validate-http.js</code></a></p>
+              <p>Create a validator</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>domain</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The domain to listen for</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>challenge</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>The challenge returned from an authz request</p>
+            
+                      </div>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>]</code> <strong>port</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Port to listen on (default: 80)</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="#HTTP01validator">HTTP01validator</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Created object</p>
+            
+                  </div>
+                <h4>Throws</h4>
+                <ul>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError">TypeError</a></code>: <div class='force-inline'><p>Invalid challenge</p>
+            </div></li>
+                </ul>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='HTTP01validator.start'>
+          <a href='#HTTP01validator.start'>
+            <code>
+              #start<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Start the server</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='HTTP01validator.start' class='mt0'>
+                start<span class='gray'></span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L55-L58'><code>lib/validate-http.js</code></a></p>
+              <p>Start the server</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="#HTTP01validator">HTTP01validator</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Object instance</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='HTTP01validator.stop'>
+          <a href='#HTTP01validator.stop'>
+            <code>
+              #stop<span class='gray'></span>
+            </code>
+            <div class='force-inline'>
+              <p>Stop the server</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='HTTP01validator.stop' class='mt0'>
+                stop<span class='gray'></span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L65-L68'><code>lib/validate-http.js</code></a></p>
+              <p>Stop the server</p>
+            
+                  <h4>Returns</h4>
+                  <code><code><a href="#HTTP01validator">HTTP01validator</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Object instance</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='TLSSNI01Validator' class='mt0'>
     TLSSNI01Validator<span class='gray'>(domain, challenge, port)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-tls.js#L23-L89'><code>lib/validate-tls.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L23-L89'><code>lib/validate-tls.js</code></a></p>
   <p>A TLSSNI01Validator performs the client-side half of the ACME &apos;tls-sni-01&apos;
 validation.  Based on a challenge, it creates a sequence of hashes values and
 responds in the correct way to TLS queries to server names based on those
@@ -1853,7 +1878,7 @@ hash values.</p>
               <h2 id='TLSSNI01Validator.constructor' class='mt0'>
                 constructor<span class='gray'>(domain, challenge, port)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-tls.js#L33-L68'><code>lib/validate-tls.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L33-L68'><code>lib/validate-tls.js</code></a></p>
               <p>Create a DNS validation server.</p>
             
                 <h4>Parameters</h4>
@@ -1910,7 +1935,7 @@ hash values.</p>
               <h2 id='TLSSNI01Validator.start' class='mt0'>
                 start<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-tls.js#L75-L78'><code>lib/validate-tls.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L75-L78'><code>lib/validate-tls.js</code></a></p>
               <p>Start the server</p>
             
                   <h4>Returns</h4>
@@ -1938,7 +1963,7 @@ hash values.</p>
               <h2 id='TLSSNI01Validator.stop' class='mt0'>
                 stop<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/validate-tls.js#L85-L88'><code>lib/validate-tls.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L85-L88'><code>lib/validate-tls.js</code></a></p>
               <p>Stop the server</p>
             
                   <h4>Returns</h4>
@@ -1953,21 +1978,169 @@ hash values.</p>
         </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='utils' class='mt0'>
-    utils<span class='gray'>(x)</span>
+  <h2 id='generateCSR' class='mt0'>
+    generateCSR<span class='gray'>(keyPair, identifier)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/3113564b3f980a9184bb5ea4b74599839779884b/lib/utils.js#L16-L224'><code>lib/utils.js</code></a></p>
-  <p>Utilities</p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L103-L116'><code>lib/crypto-utils.js</code></a></p>
+  <p>Generate a Certificate Signing Request</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
-        <li> <strong>x</strong>
+        <li><code>Ojbect</code> <strong>keyPair</strong>
           :
           <div class='force-inline'>
-            
+            <p>{privateKey, publicKey}</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>identifier</strong>
+          :
+          <div class='force-inline'>
+            <p>Common Name (CN) for the certificate</p>
+
           </div>
         </li>
     </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>Base64-encoded CSR</p>
+
+      </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='generateKey' class='mt0'>
+    generateKey<span class='gray'>(bits)</span>
+  </h2>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L59-L62'><code>lib/crypto-utils.js</code></a></p>
+  <p>Generate a public/private key pair.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code>Integer</code> <strong>bits</strong>
+          :
+          <div class='force-inline'>
+            <p>Number of bits in the key</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>Promise(privateKey)</p>
+
+      </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='importPemPrivateKey' class='mt0'>
+    importPemPrivateKey<span class='gray'>(pem)</span>
+  </h2>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L70-L72'><code>lib/crypto-utils.js</code></a></p>
+  <p>Parse PEM-encoded private key.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>pem</strong>
+          :
+          <div class='force-inline'>
+            <p>decode this</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>Promise(privateKey)</p>
+
+      </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='selfSigned' class='mt0'>
+    selfSigned<span class='gray'>(name, privateKey)</span>
+  </h2>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L148-L172'><code>lib/crypto-utils.js</code></a></p>
+  <p>Create a self-signed certificate with a given name and public key</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>name</strong>
+          :
+          <div class='force-inline'>
+            <p>Domain name to included in the cert</p>
+
+          </div>
+        </li>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>privateKey</strong>
+          :
+          <div class='force-inline'>
+            <p>JWK private key.  Public key will be put in the
+cert; the private key will be used to sign it.</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>PEM-encoded certificate</p>
+
+      </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='sha256' class='mt0'>
+    sha256<span class='gray'>(input)</span>
+  </h2>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L49-L51'><code>lib/crypto-utils.js</code></a></p>
+  <p>Compute the SHA-256 digest of a buffer.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code> <strong>input</strong>
+          :
+          <div class='force-inline'>
+            <p>Buffer to be digested</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>The digest value</p>
+
+      </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='verifiedCommonName' class='mt0'>
+    verifiedCommonName<span class='gray'>(csr_b64)</span>
+  </h2>
+    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L124-L138'><code>lib/crypto-utils.js</code></a></p>
+  <p>Verify a CSR, and extract the common name from it.</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>csr_b64</strong>
+          :
+          <div class='force-inline'>
+            <p>Base64-encoded CSR</p>
+
+          </div>
+        </li>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+      :
+      <div class='force-inline'>
+        <p>Common Name (CN) or false on error</p>
+
+      </div>
 </section>
 </div>
         </div>
