@@ -113,6 +113,41 @@
                   #write
                 </a>
               <a
+                href='#AcmeCrypto'
+                class='block bold'>
+                AcmeCrypto
+              </a>
+                <a
+                  href='#AcmeCrypto.generateCSR'
+                  class='regular block'>
+                  .generateCSR
+                </a>
+                <a
+                  href='#AcmeCrypto.generateKey'
+                  class='regular block'>
+                  .generateKey
+                </a>
+                <a
+                  href='#AcmeCrypto.importPemPrivateKey'
+                  class='regular block'>
+                  .importPemPrivateKey
+                </a>
+                <a
+                  href='#AcmeCrypto.selfSigned'
+                  class='regular block'>
+                  .selfSigned
+                </a>
+                <a
+                  href='#AcmeCrypto.sha256'
+                  class='regular block'>
+                  .sha256
+                </a>
+                <a
+                  href='#AcmeCrypto.verifiedCommonName'
+                  class='regular block'>
+                  .verifiedCommonName
+                </a>
+              <a
                 href='#AcmeUtils'
                 class='block bold'>
                 AcmeUtils
@@ -252,36 +287,6 @@
                   class='regular block'>
                   #stop
                 </a>
-              <a
-                href='#generateCSR'
-                class='block bold'>
-                generateCSR
-              </a>
-              <a
-                href='#generateKey'
-                class='block bold'>
-                generateKey
-              </a>
-              <a
-                href='#importPemPrivateKey'
-                class='block bold'>
-                importPemPrivateKey
-              </a>
-              <a
-                href='#selfSigned'
-                class='block bold'>
-                selfSigned
-              </a>
-              <a
-                href='#sha256'
-                class='block bold'>
-                sha256
-              </a>
-              <a
-                href='#verifiedCommonName'
-                class='block bold'>
-                verifiedCommonName
-              </a>
           </div>
         </div>
       </div>
@@ -291,7 +296,7 @@
   <h2 id='AcmeProtocol' class='mt0'>
     AcmeProtocol<span class='gray'>(privateKey, directoryURI)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L63-L333'><code>lib/acme.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L63-L333'><code>lib/acme.js</code></a></p>
   <p>An AcmeProtocol represents the interactions of a single key pair with a single
 ACME server.  The the methods to map fairly directly to the endpoints that an
 ACME server exposes.</p>
@@ -328,7 +333,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.getLink' class='mt0'>
                 getLink<span class='gray'>(obj, [name])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L89-L97'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L89-L97'><code>lib/acme.js</code></a></p>
               <p>Get the link relation of the given name from the object returned from
             an AcmeProtocol request.</p>
             
@@ -380,7 +385,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.getLocation' class='mt0'>
                 getLocation<span class='gray'>(obj)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L106-L111'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L106-L111'><code>lib/acme.js</code></a></p>
               <p>Get the location of the object returned from an AcmeProtocol request.</p>
             
                 <h4>Parameters</h4>
@@ -424,7 +429,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.constructor' class='mt0'>
                 constructor<span class='gray'>(privateKey, [directoryURI])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L70-L77'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L70-L77'><code>lib/acme.js</code></a></p>
               <p>Create an AcmeClient</p>
             
                 <h4>Parameters</h4>
@@ -469,7 +474,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.directory' class='mt0'>
                 directory<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L187-L203'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L187-L203'><code>lib/acme.js</code></a></p>
               <p>Get the ACME directory object.</p>
             
                   <h4>Returns</h4>
@@ -497,7 +502,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.get' class='mt0'>
                 get<span class='gray'>(uri)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L239-L245'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L239-L245'><code>lib/acme.js</code></a></p>
               <p>Retrieve a JSON document.</p>
             
                 <h4>Parameters</h4>
@@ -535,7 +540,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.newAuthorization' class='mt0'>
                 newAuthorization<span class='gray'>(domain)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L270-L293'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L270-L293'><code>lib/acme.js</code></a></p>
               <p>Call <code>new-authz</code></p>
             
                 <h4>Parameters</h4>
@@ -573,7 +578,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.newCertificate' class='mt0'>
                 newCertificate<span class='gray'>(csr)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L319-L332'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L319-L332'><code>lib/acme.js</code></a></p>
               <p>Call <code>new-cert</code></p>
             
                 <h4>Parameters</h4>
@@ -611,7 +616,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.newRegistration' class='mt0'>
                 newRegistration<span class='gray'>(contacts, [agreement])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L212-L231'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L212-L231'><code>lib/acme.js</code></a></p>
               <p>Call <code>new-reg</code></p>
             
                 <h4>Parameters</h4>
@@ -656,7 +661,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.respondToChallenge' class='mt0'>
                 respondToChallenge<span class='gray'>(challenge)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L301-L311'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L301-L311'><code>lib/acme.js</code></a></p>
               <p>Respond to a challenge.</p>
             
                 <h4>Parameters</h4>
@@ -694,7 +699,7 @@ an AcmeProtocol request.</p>
               <h2 id='AcmeProtocol.updateRegistration' class='mt0'>
                 updateRegistration<span class='gray'>(uri, registration)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/acme.js#L256-L262'><code>lib/acme.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/acme.js#L256-L262'><code>lib/acme.js</code></a></p>
               <p>Update a registration with new information.</p>
             
                 <h4>Parameters</h4>
@@ -737,7 +742,7 @@ an AcmeProtocol request.</p>
   <h2 id='' class='mt0'>
     <span class='gray'></span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L13-L13'><code>lib/crypto-utils.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L13-L13'><code>lib/crypto-utils.js</code></a></p>
   <p>Crypto Utilities</p>
 
 </section>
@@ -745,7 +750,7 @@ an AcmeProtocol request.</p>
   <h2 id='AcmeConfig' class='mt0'>
     AcmeConfig<span class='gray'>(filename, override)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L28-L103'><code>lib/config.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/config.js#L28-L103'><code>lib/config.js</code></a></p>
   <p>Configuration file for ACME.</p>
 
     <h4>Parameters</h4>
@@ -780,7 +785,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.constructor' class='mt0'>
                 constructor<span class='gray'>(filename, [override])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L37-L41'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/config.js#L37-L41'><code>lib/config.js</code></a></p>
               <p>Create a config, with the given filename.  Make sure to call read, and
             wait for its promise before using any of the other methods!</p>
             
@@ -826,7 +831,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.generatePrivateKey' class='mt0'>
                 generatePrivateKey<span class='gray'>([bits])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L92-L98'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/config.js#L92-L98'><code>lib/config.js</code></a></p>
               <p>Generate a new private key.  Saves the config file on success.</p>
             
                 <h4>Parameters</h4>
@@ -864,7 +869,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.importPrivateKey' class='mt0'>
                 importPrivateKey<span class='gray'>(filename)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L75-L84'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/config.js#L75-L84'><code>lib/config.js</code></a></p>
               <p>Import a private key from a PEM file. Saves the config file on success.</p>
             
                 <h4>Parameters</h4>
@@ -902,7 +907,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.read' class='mt0'>
                 read<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L48-L54'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/config.js#L48-L54'><code>lib/config.js</code></a></p>
               <p>Read the file.  Safe to call with a non-existant file or null.</p>
             
                   <h4>Returns</h4>
@@ -930,7 +935,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeConfig.write' class='mt0'>
                 write<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/config.js#L61-L67'><code>lib/config.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/config.js#L61-L67'><code>lib/config.js</code></a></p>
               <p>Write the file.</p>
             
                   <h4>Returns</h4>
@@ -945,10 +950,277 @@ wait for its promise before using any of the other methods!</p>
         </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='AcmeCrypto' class='mt0'>
+    AcmeCrypto<span class='gray'>(input)</span>
+  </h2>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L46-L177'><code>lib/crypto-utils.js</code></a></p>
+  <p>Crypto utilities.</p>
+<p>A note on formats:</p>
+<ul>
+<li>Keys are always represented as JWKs</li>
+<li>Signature objects are in ACME format</li>
+<li>Certs and CSRs are base64-encoded</li>
+</ul>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li> <strong>input</strong>
+          :
+          <div class='force-inline'>
+            
+          </div>
+        </li>
+    </ul>
+      <h4>Static members</h4>
+        <div class='collapsible' id='AcmeCrypto.generateCSR'>
+          <a href='#AcmeCrypto.generateCSR'>
+            <code>
+              .generateCSR<span class='gray'>(keyPair, identifier)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Generate a Certificate Signing Request</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeCrypto.generateCSR' class='mt0'>
+                generateCSR<span class='gray'>(keyPair, identifier)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L107-L120'><code>lib/crypto-utils.js</code></a></p>
+              <p>Generate a Certificate Signing Request</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>Ojbect</code> <strong>keyPair</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>{privateKey, publicKey}</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>identifier</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Common Name (CN) for the certificate</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Base64-encoded CSR</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='AcmeCrypto.generateKey'>
+          <a href='#AcmeCrypto.generateKey'>
+            <code>
+              .generateKey<span class='gray'>(bits)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Generate a public/private key pair.</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeCrypto.generateKey' class='mt0'>
+                generateKey<span class='gray'>(bits)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L63-L66'><code>lib/crypto-utils.js</code></a></p>
+              <p>Generate a public/private key pair.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code>Integer</code> <strong>bits</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Number of bits in the key</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Promise(privateKey)</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='AcmeCrypto.importPemPrivateKey'>
+          <a href='#AcmeCrypto.importPemPrivateKey'>
+            <code>
+              .importPemPrivateKey<span class='gray'>(pem)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Parse PEM-encoded private key.</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeCrypto.importPemPrivateKey' class='mt0'>
+                importPemPrivateKey<span class='gray'>(pem)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L74-L76'><code>lib/crypto-utils.js</code></a></p>
+              <p>Parse PEM-encoded private key.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>pem</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>decode this</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Promise(privateKey)</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='AcmeCrypto.selfSigned'>
+          <a href='#AcmeCrypto.selfSigned'>
+            <code>
+              .selfSigned<span class='gray'>(name, privateKey)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Create a self-signed certificate with a given name and public key</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeCrypto.selfSigned' class='mt0'>
+                selfSigned<span class='gray'>(name, privateKey)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L152-L176'><code>lib/crypto-utils.js</code></a></p>
+              <p>Create a self-signed certificate with a given name and public key</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>name</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Domain name to included in the cert</p>
+            
+                      </div>
+                    </li>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>privateKey</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>JWK private key.  Public key will be put in the
+            cert; the private key will be used to sign it.</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>PEM-encoded certificate</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='AcmeCrypto.sha256'>
+          <a href='#AcmeCrypto.sha256'>
+            <code>
+              .sha256<span class='gray'>(input)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Compute the SHA-256 digest of a buffer.</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeCrypto.sha256' class='mt0'>
+                sha256<span class='gray'>(input)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L53-L55'><code>lib/crypto-utils.js</code></a></p>
+              <p>Compute the SHA-256 digest of a buffer.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code> <strong>input</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Buffer to be digested</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>The digest value</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+        <div class='collapsible' id='AcmeCrypto.verifiedCommonName'>
+          <a href='#AcmeCrypto.verifiedCommonName'>
+            <code>
+              .verifiedCommonName<span class='gray'>(csr_b64)</span>
+            </code>
+            <div class='force-inline'>
+              <p>Verify a CSR, and extract the common name from it.</p>
+
+            </div>
+          </a>
+          <div class='collapser border px2 m2'>
+            <section class='py2 clearfix'>
+              <h2 id='AcmeCrypto.verifiedCommonName' class='mt0'>
+                verifiedCommonName<span class='gray'>(csr_b64)</span>
+              </h2>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/crypto-utils.js#L128-L142'><code>lib/crypto-utils.js</code></a></p>
+              <p>Verify a CSR, and extract the common name from it.</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>csr_b64</strong>
+                      :
+                      <div class='force-inline'>
+                        <p>Base64-encoded CSR</p>
+            
+                      </div>
+                    </li>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
+                  :
+                  <div class='force-inline'>
+                    <p>Common Name (CN) or false on error</p>
+            
+                  </div>
+            </section>
+          </div>
+        </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
   <h2 id='AcmeUtils' class='mt0'>
     AcmeUtils<span class='gray'>(x)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L15-L224'><code>lib/utils.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L15-L224'><code>lib/utils.js</code></a></p>
   <p>Utilities</p>
 
     <h4>Parameters</h4>
@@ -976,7 +1248,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeUtils.b64dec' class='mt0'>
                 b64dec<span class='gray'>(str)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L59-L61'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L59-L61'><code>lib/utils.js</code></a></p>
               <p>Base64url decode a string</p>
             
                 <h4>Parameters</h4>
@@ -1014,7 +1286,7 @@ wait for its promise before using any of the other methods!</p>
               <h2 id='AcmeUtils.b64enc' class='mt0'>
                 b64enc<span class='gray'>(buffer)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L49-L51'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L49-L51'><code>lib/utils.js</code></a></p>
               <p>Base64url encode a buffer</p>
             
                 <h4>Parameters</h4>
@@ -1053,7 +1325,7 @@ new object.</p>
               <h2 id='AcmeUtils.extend' class='mt0'>
                 extend<span class='gray'>(objects)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L149-L164'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L149-L164'><code>lib/utils.js</code></a></p>
               <p>Copy all of the properties of the specified objects into a single,
             new object.</p>
             
@@ -1092,7 +1364,7 @@ new object.</p>
               <h2 id='AcmeUtils.extract' class='mt0'>
                 extract<span class='gray'>(fields, object)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L173-L183'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L173-L183'><code>lib/utils.js</code></a></p>
               <p>Extract the given fields, if they exist from the given object.</p>
             
                 <h4>Parameters</h4>
@@ -1137,7 +1409,7 @@ new object.</p>
               <h2 id='AcmeUtils.fieldsPresent' class='mt0'>
                 fieldsPresent<span class='gray'>(fields, object)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L78-L85'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L78-L85'><code>lib/utils.js</code></a></p>
               <p>Are the given fields set on the given object?</p>
             
                 <h4>Parameters</h4>
@@ -1182,7 +1454,7 @@ new object.</p>
               <h2 id='AcmeUtils.fromStandardB64' class='mt0'>
                 fromStandardB64<span class='gray'>(x)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L23-L25'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L23-L25'><code>lib/utils.js</code></a></p>
               <p>Translate to Base64url</p>
             
                 <h4>Parameters</h4>
@@ -1220,7 +1492,7 @@ new object.</p>
               <h2 id='AcmeUtils.isB64String' class='mt0'>
                 isB64String<span class='gray'>(x)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L68-L70'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L68-L70'><code>lib/utils.js</code></a></p>
               <p>Is the string valid Base64url?</p>
             
                 <h4>Parameters</h4>
@@ -1259,7 +1531,7 @@ just so that we don&apos;t have to store objects</p>
               <h2 id='AcmeUtils.keyFingerprint' class='mt0'>
                 keyFingerprint<span class='gray'>(jwk)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L131-L140'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L131-L140'><code>lib/utils.js</code></a></p>
               <p>A simple, non-standard fingerprint for a JWK,
             just so that we don&apos;t have to store objects</p>
             
@@ -1299,7 +1571,7 @@ has invalid JSON, etc.</p>
               <h2 id='AcmeUtils.readJSON' class='mt0'>
                 readJSON<span class='gray'>([filename])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L193-L210'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L193-L210'><code>lib/utils.js</code></a></p>
               <p>Read a JSON file.  Do not fail if the file cannot be read, doesn&apos;t exist,
             has invalid JSON, etc.</p>
             
@@ -1339,7 +1611,7 @@ has invalid JSON, etc.</p>
               <h2 id='AcmeUtils.toStandardB64' class='mt0'>
                 toStandardB64<span class='gray'>(x)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L32-L42'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L32-L42'><code>lib/utils.js</code></a></p>
               <p>Translate from Base64url</p>
             
                 <h4>Parameters</h4>
@@ -1377,7 +1649,7 @@ has invalid JSON, etc.</p>
               <h2 id='AcmeUtils.validJWK' class='mt0'>
                 validJWK<span class='gray'>(jwk)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L93-L106'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L93-L106'><code>lib/utils.js</code></a></p>
               <p>Is the given object a valid JSON Web Key (JWK)?</p>
             
                 <h4>Parameters</h4>
@@ -1415,7 +1687,7 @@ has invalid JSON, etc.</p>
               <h2 id='AcmeUtils.validSignature' class='mt0'>
                 validSignature<span class='gray'>(sig)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L114-L122'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L114-L122'><code>lib/utils.js</code></a></p>
               <p>Is the signature valid?</p>
             
                 <h4>Parameters</h4>
@@ -1453,7 +1725,7 @@ has invalid JSON, etc.</p>
               <h2 id='AcmeUtils.writeJSON' class='mt0'>
                 writeJSON<span class='gray'>(filename, obj)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/utils.js#L219-L223'><code>lib/utils.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/utils.js#L219-L223'><code>lib/utils.js</code></a></p>
               <p>Write an object to a file, serialized as JSON.</p>
             
                 <h4>Parameters</h4>
@@ -1488,7 +1760,7 @@ has invalid JSON, etc.</p>
   <h2 id='CLI' class='mt0'>
     CLI<span class='gray'>(args)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/cli.js#L41-L280'><code>lib/cli.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/cli.js#L41-L280'><code>lib/cli.js</code></a></p>
   <p>A Command Line Interface for the ACME protocol.</p>
 
     <h4>Parameters</h4>
@@ -1516,7 +1788,7 @@ has invalid JSON, etc.</p>
               <h2 id='CLI.constructor' class='mt0'>
                 constructor<span class='gray'>([args])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/cli.js#L49-L117'><code>lib/cli.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/cli.js#L49-L117'><code>lib/cli.js</code></a></p>
               <p>Create a CLI.</p>
             
                 <h4>Parameters</h4>
@@ -1545,7 +1817,7 @@ has invalid JSON, etc.</p>
   <h2 id='DNS01Validator' class='mt0'>
     DNS01Validator<span class='gray'>(domain, challenge, port)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L20-L82'><code>lib/validate-dns.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-dns.js#L20-L82'><code>lib/validate-dns.js</code></a></p>
   <p>A DNS01Validator performs the client-side half of the ACME &apos;dns-01&apos;
 validation.  Based on a challenge, it creates the TXT record specified by the
 protocol and returns it in response to a query for the proper domain name.</p>
@@ -1587,7 +1859,7 @@ protocol and returns it in response to a query for the proper domain name.</p>
               <h2 id='DNS01Validator.constructor' class='mt0'>
                 constructor<span class='gray'>(domain, challenge, port)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L30-L61'><code>lib/validate-dns.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-dns.js#L30-L61'><code>lib/validate-dns.js</code></a></p>
               <p>Create a DNS validation server.</p>
             
                 <h4>Parameters</h4>
@@ -1644,7 +1916,7 @@ protocol and returns it in response to a query for the proper domain name.</p>
               <h2 id='DNS01Validator.start' class='mt0'>
                 start<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L68-L71'><code>lib/validate-dns.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-dns.js#L68-L71'><code>lib/validate-dns.js</code></a></p>
               <p>Start the server</p>
             
                   <h4>Returns</h4>
@@ -1672,7 +1944,7 @@ protocol and returns it in response to a query for the proper domain name.</p>
               <h2 id='DNS01Validator.stop' class='mt0'>
                 stop<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-dns.js#L78-L81'><code>lib/validate-dns.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-dns.js#L78-L81'><code>lib/validate-dns.js</code></a></p>
               <p>Stop the server</p>
             
                   <h4>Returns</h4>
@@ -1690,7 +1962,7 @@ protocol and returns it in response to a query for the proper domain name.</p>
   <h2 id='HTTP01validator' class='mt0'>
     HTTP01validator<span class='gray'>(domain, challenge, port)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L19-L69'><code>lib/validate-http.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-http.js#L19-L69'><code>lib/validate-http.js</code></a></p>
   <p>An HTTP01validator performs the client-side half of the ACME &apos;http-01&apos;
 validation.  Based on a challenge, it creates the string specified by the
 protocol and returns it in response to a query for the proper resource.</p>
@@ -1732,7 +2004,7 @@ protocol and returns it in response to a query for the proper resource.</p>
               <h2 id='HTTP01validator.constructor' class='mt0'>
                 constructor<span class='gray'>(domain, challenge, [port])</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L29-L48'><code>lib/validate-http.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-http.js#L29-L48'><code>lib/validate-http.js</code></a></p>
               <p>Create a validator</p>
             
                 <h4>Parameters</h4>
@@ -1789,7 +2061,7 @@ protocol and returns it in response to a query for the proper resource.</p>
               <h2 id='HTTP01validator.start' class='mt0'>
                 start<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L55-L58'><code>lib/validate-http.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-http.js#L55-L58'><code>lib/validate-http.js</code></a></p>
               <p>Start the server</p>
             
                   <h4>Returns</h4>
@@ -1817,7 +2089,7 @@ protocol and returns it in response to a query for the proper resource.</p>
               <h2 id='HTTP01validator.stop' class='mt0'>
                 stop<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-http.js#L65-L68'><code>lib/validate-http.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-http.js#L65-L68'><code>lib/validate-http.js</code></a></p>
               <p>Stop the server</p>
             
                   <h4>Returns</h4>
@@ -1835,7 +2107,7 @@ protocol and returns it in response to a query for the proper resource.</p>
   <h2 id='TLSSNI01Validator' class='mt0'>
     TLSSNI01Validator<span class='gray'>(domain, challenge, port)</span>
   </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L23-L89'><code>lib/validate-tls.js</code></a></p>
+    <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-tls.js#L23-L89'><code>lib/validate-tls.js</code></a></p>
   <p>A TLSSNI01Validator performs the client-side half of the ACME &apos;tls-sni-01&apos;
 validation.  Based on a challenge, it creates a sequence of hashes values and
 responds in the correct way to TLS queries to server names based on those
@@ -1878,7 +2150,7 @@ hash values.</p>
               <h2 id='TLSSNI01Validator.constructor' class='mt0'>
                 constructor<span class='gray'>(domain, challenge, port)</span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L33-L68'><code>lib/validate-tls.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-tls.js#L33-L68'><code>lib/validate-tls.js</code></a></p>
               <p>Create a DNS validation server.</p>
             
                 <h4>Parameters</h4>
@@ -1935,7 +2207,7 @@ hash values.</p>
               <h2 id='TLSSNI01Validator.start' class='mt0'>
                 start<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L75-L78'><code>lib/validate-tls.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-tls.js#L75-L78'><code>lib/validate-tls.js</code></a></p>
               <p>Start the server</p>
             
                   <h4>Returns</h4>
@@ -1963,7 +2235,7 @@ hash values.</p>
               <h2 id='TLSSNI01Validator.stop' class='mt0'>
                 stop<span class='gray'></span>
               </h2>
-                <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/validate-tls.js#L85-L88'><code>lib/validate-tls.js</code></a></p>
+                <p><a href='https://github.com/hildjj/node-acme/blob/57d72081ab86feb4b1531f721dd3f980cb147899/lib/validate-tls.js#L85-L88'><code>lib/validate-tls.js</code></a></p>
               <p>Stop the server</p>
             
                   <h4>Returns</h4>
@@ -1976,171 +2248,6 @@ hash values.</p>
             </section>
           </div>
         </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='generateCSR' class='mt0'>
-    generateCSR<span class='gray'>(keyPair, identifier)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L103-L116'><code>lib/crypto-utils.js</code></a></p>
-  <p>Generate a Certificate Signing Request</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>Ojbect</code> <strong>keyPair</strong>
-          :
-          <div class='force-inline'>
-            <p>{privateKey, publicKey}</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>identifier</strong>
-          :
-          <div class='force-inline'>
-            <p>Common Name (CN) for the certificate</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Base64-encoded CSR</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='generateKey' class='mt0'>
-    generateKey<span class='gray'>(bits)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L59-L62'><code>lib/crypto-utils.js</code></a></p>
-  <p>Generate a public/private key pair.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>Integer</code> <strong>bits</strong>
-          :
-          <div class='force-inline'>
-            <p>Number of bits in the key</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Promise(privateKey)</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='importPemPrivateKey' class='mt0'>
-    importPemPrivateKey<span class='gray'>(pem)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L70-L72'><code>lib/crypto-utils.js</code></a></p>
-  <p>Parse PEM-encoded private key.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>pem</strong>
-          :
-          <div class='force-inline'>
-            <p>decode this</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Promise(privateKey)</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='selfSigned' class='mt0'>
-    selfSigned<span class='gray'>(name, privateKey)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L148-L172'><code>lib/crypto-utils.js</code></a></p>
-  <p>Create a self-signed certificate with a given name and public key</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>name</strong>
-          :
-          <div class='force-inline'>
-            <p>Domain name to included in the cert</p>
-
-          </div>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code> <strong>privateKey</strong>
-          :
-          <div class='force-inline'>
-            <p>JWK private key.  Public key will be put in the
-cert; the private key will be used to sign it.</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>PEM-encoded certificate</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='sha256' class='mt0'>
-    sha256<span class='gray'>(input)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L49-L51'><code>lib/crypto-utils.js</code></a></p>
-  <p>Compute the SHA-256 digest of a buffer.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code> <strong>input</strong>
-          :
-          <div class='force-inline'>
-            <p>Buffer to be digested</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://nodejs.org/api/buffer.html">Buffer</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>The digest value</p>
-
-      </div>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='verifiedCommonName' class='mt0'>
-    verifiedCommonName<span class='gray'>(csr_b64)</span>
-  </h2>
-    <p><a href='https://github.com/hildjj/node-acme/blob/d937f32c28a7ca630aa944403943bf525279c1b5/lib/crypto-utils.js#L124-L138'><code>lib/crypto-utils.js</code></a></p>
-  <p>Verify a CSR, and extract the common name from it.</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code> <strong>csr_b64</strong>
-          :
-          <div class='force-inline'>
-            <p>Base64-encoded CSR</p>
-
-          </div>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code></code>
-      :
-      <div class='force-inline'>
-        <p>Common Name (CN) or false on error</p>
-
-      </div>
 </section>
 </div>
         </div>
