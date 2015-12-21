@@ -100,16 +100,24 @@ function _setup(app, server) {
     return res.status(200).send(reg);
   });
 
+  var authz;
   app.post('/new-authz', function(req, res) {
-    var authz = req.sig.payload;
+    authz = req.sig.payload;
+    authz.status = "pending";
     authz.challenges = [{
       uri:   server.base + 'challenge',
       token: jose.util.randomBytes(NONCE_SIZE).toString('hex')
     }];
+    res.location(server.base + 'authz/asdf');
     return res.status(201).send(authz);
   });
 
+  app.get('/authz/asdf', function(req, res) {
+    return res.status(200).send(authz);
+  });
+
   app.post('/challenge', function(req, res) {
+    authz.status = "valid";
     res.status(200).send(req.sig.payload);
   });
 
