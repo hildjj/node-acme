@@ -28,6 +28,7 @@
   "dependencies": {
     "bluebird": "^3.0",
     "express": "^4.13",
+    "native-dns": "^0.7.0",
     "node-jose": "^0.6",
     "npmlog": "^2.0",
     "request-debug": "^0.2",
