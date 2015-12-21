@@ -9,13 +9,16 @@ var assert = require('chai').assert;
 var dns    = require('native-dns');
 var crypto = require('../lib/crypto-utils');
 var rp     = require('request-promise');
+var tls    = require('tls');
 
 var DNS01Validator = require('../lib/validate-dns');
 var HTTP01Validator = require('../lib/validate-http');
+var TLSSNI01Validator = require('../lib/validate-tls');
 
 var DOMAIN = 'not-example.com';
 var TOKEN = 'gZZT1sMhGgH2qHdURBtguKKfc7VgBbph9VZgnq-Kurk';
 var KEY_AUTHZ = TOKEN + '.oLynG5-VrkDKgblLWgGL4u5eS5GrliOfS38WMw4Yk7I';
+var TLS_SNI_N = 20;
 var PORT = 5300;
 
 function makeChallenge(type) {
@@ -26,6 +29,18 @@ function makeChallenge(type) {
   };
 }
 
+function tlsConnectAsync(opts) {
+  return new Promise((resolve, reject) => {
+    var conn = tls.connect(opts, () => {
+      resolve(conn);
+    });
+
+    conn.on('error', (err) => {
+      reject(err);
+    });
+  });
+}
+
 describe('validation servers', function() {
   it('http-01', function(done) {
     var challenge = makeChallenge('http-01');
@@ -34,13 +49,61 @@ describe('validation servers', function() {
 
     validator.start();
     rp.get({
-      uri: uri,
+      uri:     uri,
       headers: { 'Host': DOMAIN }
     })
     .then((response) => {
       assert.equal(response, KEY_AUTHZ);
     })
     .finally(() => {
+      validator.stop();
+      done();
+    });
+  });
+
+  it('tls-sni-01', function(done) {
+    var challenge = makeChallenge('tls-sni-01');
+    challenge.n = TLS_SNI_N;
+    var validator = new TLSSNI01Validator(DOMAIN, challenge, PORT);
+
+    var zNames = [];
+    var z = challenge.keyAuthorization;
+    for (var i=0; i<challenge.n; ++i) {
+      z = crypto.sha256(new Buffer(z)).toString('hex').toLowerCase();
+      zNames.push(z.substr(0, 32) + '.' + z.substr(32) + '.acme.invalid');
+    }
+
+    var opts = {
+      host:               'localhost',
+      port:               PORT,
+      rejectUnauthorized: false
+    };
+    var testAll = function() {
+      if (zNames.length === 0) {
+        return true;
+      }
+
+      opts.servername = zNames.pop();
+      return tlsConnectAsync(opts)
+      .then((conn) => {
+        var san = conn.getPeerCertificate().subjectaltname;
+        conn.end();
+
+        assert.ok(san);
+        assert.equal(san, 'DNS:' + opts.servername);
+      })
+      .then(testAll);
+    };
+
+    validator.ready
+    .then(() => {
+      validator.start();
+      validator.server.on('error', (err) => {
+        done(err);
+      });
+      return testAll();
+    })
+    .then(() => {
       validator.stop();
       done();
     });

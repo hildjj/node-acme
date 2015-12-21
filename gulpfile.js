@@ -7,6 +7,9 @@ var gulp = require('gulp'),
 
 var TESTS = './test/*.js';
 var SRC = './lib/**/*.js';
+var MOCHA_OPTS = {
+  timeout: 20000
+};
 
 gulp.task('clean', function() {
   var del = require('del');
@@ -29,7 +32,7 @@ gulp.task('lint', function() {
 
 gulp.task('test', ['lint'], function() {
   return gulp.src([TESTS])
-    .pipe(mocha());
+    .pipe(mocha(MOCHA_OPTS));
 });
 
 gulp.task('doc', function() {
@@ -56,7 +59,7 @@ gulp.task('pre-coverage', ['clean'], function() {
 
 gulp.task('coverage', ['pre-coverage'], function() {
   var t = gulp.src([TESTS])
-  .pipe(mocha().on('error', function(er) {
+  .pipe(mocha(MOCHA_OPTS).on('error', function(er) {
     gutil.log(er);
     t.end();
   }))
