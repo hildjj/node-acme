@@ -103,7 +103,7 @@ function _setup(app, server) {
   var authz;
   app.post('/new-authz', function(req, res) {
     authz = req.sig.payload;
-    authz.status = "pending";
+    authz.status = 'pending';
     authz.challenges = [{
       uri:   server.base + 'challenge',
       token: jose.util.randomBytes(NONCE_SIZE).toString('hex')
@@ -117,14 +117,14 @@ function _setup(app, server) {
   });
 
   app.post('/challenge', function(req, res) {
-    authz.status = "valid";
+    authz.status = 'valid';
     res.status(200).send(req.sig.payload);
   });
 
   app.post('/new-cert', function(req, res) {
-    var cert = new Buffer("3000", "hex");
+    var cert = new Buffer('3000', 'hex');
     res.status(201)
-       .append("content-type", "application/pkix-cert")
+       .append('content-type', 'application/pkix-cert')
        .send(cert);
   })
 }
