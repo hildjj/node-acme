@@ -44,12 +44,15 @@
     "gulp-coveralls": "^0.1",
     "gulp-documentation": "^2.1",
     "gulp-eslint": "^1.0",
+    "gulp-exit": "0.0.2",
     "gulp-gh-pages": "^0.5.4",
     "gulp-istanbul": "^0.10",
     "gulp-live-server": "0.0",
     "gulp-mocha": "^2.1",
     "gulp-util": "^3.0",
+    "nock": "^8.0.0",
     "open": "^0.0",
+    "supertest": "^0.0",
     "temp": "^0.8"
   }
 }

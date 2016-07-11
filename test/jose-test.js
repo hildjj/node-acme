@@ -79,7 +79,7 @@ describe('jose', function() {
     let jws = {
       'protected': headerB64,
       'payload':   'AAAA',
-      'signature': 'AAAA',
+      'signature': 'AAAA'
     };
 
     jose.verify(jws)
