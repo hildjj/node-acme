@@ -5,6 +5,7 @@
 
 'use strict';
 
+const assert          = require('chai').assert;
 const request         = require('supertest');
 const jose            = require('../lib/jose');
 const TransportServer = require('../lib/transport-server');
@@ -38,13 +39,31 @@ describe('transport-level server', function() {
     let server = new TransportServer();
     let nonce = server.nonces.get();
 
-    FAKE_CLIENT.makeJWS(nonce, 'http://0.0.0.0/foo?bar=baz')
+    let gotPOST = false;
+    let result = {'bar': 2};
+    server.app.post('/foo', (req, res) => {
+      gotPOST = true;
+
+      try {
+        assert.deepEqual(req.payload, FAKE_CLIENT.payload);
+      } catch (e) {
+        res.status(418);
+      }
+
+      res.json(result);
+    });
+
+    FAKE_CLIENT.makeJWS(nonce, 'http://0.0.0.0/foo')
     .then(jws => {
       request(server.app)
-        .post('/foo?bar=baz')
+        .post('/foo')
         .send(jws)
-        .expect(404)
-        .expect('replay-nonce', NONCE_RE, done);
+        .expect(200)
+        .expect('replay-nonce', NONCE_RE, done)
+        .expect(body => {
+          assert.isTrue(gotPOST);
+          assert.deepEqual(body, result);
+        });
     });
   });
 
