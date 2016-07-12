@@ -67,7 +67,8 @@ gulp.task('coverage', ['pre-coverage'], function() {
   }))
   .pipe(istanbul.writeReports({
     dir: './coverage'
-  }));
+  }))
+  .pipe(exit());
   return t;
 });
 
