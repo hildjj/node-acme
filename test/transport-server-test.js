@@ -43,7 +43,13 @@ describe('transport-level server', function() {
     let result = {'bar': 2};
     server.app.post('/foo', (req, res) => {
       gotPOST = true;
-      assert.deepEqual(req.payload, FAKE_CLIENT.payload);
+
+      try {
+        assert.deepEqual(req.payload, FAKE_CLIENT.payload);
+      } catch (e) {
+        res.status(418);
+      }
+
       res.json(result);
     });
 
@@ -52,6 +58,7 @@ describe('transport-level server', function() {
       request(server.app)
         .post('/foo')
         .send(jws)
+        .expect(200)
         .expect('replay-nonce', NONCE_RE, done)
         .expect(body => {
           assert.isTrue(gotPOST);
