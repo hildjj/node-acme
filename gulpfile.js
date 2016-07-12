@@ -3,7 +3,8 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     mocha = require('gulp-mocha'),
-    istanbul = require('gulp-istanbul');
+    istanbul = require('gulp-istanbul'),
+    exit = require('gulp-exit');
 
 var TESTS = './test/*.js';
 var SRC = './lib/**/*.js';
@@ -32,7 +33,8 @@ gulp.task('lint', function() {
 
 gulp.task('test', ['lint'], function() {
   return gulp.src([TESTS])
-    .pipe(mocha(MOCHA_OPTS));
+    .pipe(mocha(MOCHA_OPTS))
+    .pipe(exit());
 });
 
 gulp.task('doc', function() {
@@ -65,7 +67,7 @@ gulp.task('coverage', ['pre-coverage'], function() {
   }))
   .pipe(istanbul.writeReports({
     dir: './coverage'
-  }));
+  }))
   return t;
 });
 
