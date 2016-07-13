@@ -14,6 +14,8 @@ working on its development than something to be used in production.
 * Demonstrate how the protocol works in as minimal as a way as possible
 * Provide a platform to show how possible changes to the protocol impact an
   implementation
+* Provide a testing / conformance tool for people developing ACME
+  implementations
 * 100% test and documentation coverage
 * Non-goal: Having a clean command line interface or API
 
