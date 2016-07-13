@@ -7,37 +7,17 @@
 
 const assert          = require('chai').assert;
 const request         = require('supertest');
-const jose            = require('../lib/jose');
+const MockClient      = require('./tools/mock-client');
 const TransportServer = require('../lib/transport-server');
 
-let NONCE_RE = /^[a-zA-Z0-9-_]+$/;
-let FAKE_CLIENT = {
-  payload: {'fnord': true},
-
-  key: function() {
-    if (this._key) {
-      return Promise.resolve(this._key);
-    }
-    return jose.newkey()
-      .then(k => {
-        this._key = k;
-        return k;
-      });
-  },
-
-  makeJWS: function(nonce, url) {
-    return this.key()
-      .then(k => jose.sign(k, this.payload, {
-        nonce: nonce,
-        url:   url
-      }));
-  }
-};
+let nonceRE = /^[a-zA-Z0-9-_]+$/;
+let mockClient = new MockClient();
 
 describe('transport-level server', function() {
   it('responds to a valid POST request', function(done) {
     let server = new TransportServer();
     let nonce = server.nonces.get();
+    let payload = {'fnord': 42};
 
     let gotPOST = false;
     let result = {'bar': 2};
@@ -45,7 +25,7 @@ describe('transport-level server', function() {
       gotPOST = true;
 
       try {
-        assert.deepEqual(req.payload, FAKE_CLIENT.payload);
+        assert.deepEqual(req.payload, payload);
       } catch (e) {
         res.status(418);
       }
@@ -53,13 +33,13 @@ describe('transport-level server', function() {
       res.json(result);
     });
 
-    FAKE_CLIENT.makeJWS(nonce, 'http://0.0.0.0/foo')
+    mockClient.makeJWS(nonce, 'http://0.0.0.0/foo', payload)
     .then(jws => {
       request(server.app)
         .post('/foo')
         .send(jws)
         .expect(200)
-        .expect('replay-nonce', NONCE_RE, done)
+        .expect('replay-nonce', nonceRE, done)
         .expect(body => {
           assert.isTrue(gotPOST);
           assert.deepEqual(body, result);
@@ -70,7 +50,7 @@ describe('transport-level server', function() {
   it('rejects a POST with a bad nonce', function(done) {
     let server = new TransportServer();
 
-    FAKE_CLIENT.makeJWS('asdf', 'http://0.0.0.0/foo?bar=baz')
+    mockClient.makeJWS('asdf', 'http://0.0.0.0/foo?bar=baz')
     .then(jws => {
       request(server.app)
         .post('/foo?bar=baz')
@@ -83,7 +63,7 @@ describe('transport-level server', function() {
     let server = new TransportServer();
     let nonce = server.nonces.get();
 
-    FAKE_CLIENT.makeJWS(nonce, 'http://example.com/foo?bar=baz')
+    mockClient.makeJWS(nonce, 'http://example.com/foo?bar=baz')
     .then(jws => {
       request(server.app)
         .post('/foo?bar=baz')
@@ -97,7 +77,7 @@ describe('transport-level server', function() {
     request(server.app)
       .get('/')
       .expect(404)
-      .expect('replay-nonce', NONCE_RE, done);
+      .expect('replay-nonce', nonceRE, done);
   });
 
   it('provides a nonce for HEAD requests', function(done) {
@@ -105,7 +85,7 @@ describe('transport-level server', function() {
     request(server.app)
       .head('/')
       .expect(404)
-      .expect('replay-nonce', NONCE_RE)
+      .expect('replay-nonce', nonceRE)
       .end(done);
   });
 });

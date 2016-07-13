@@ -67,7 +67,10 @@ gulp.task('coverage', ['pre-coverage'], function() {
   }))
   .pipe(istanbul.writeReports({
     dir: './coverage'
-  }))
+  }));
+  // XXX: This line needs to be commented out for `gulp serve` to work, but
+  // needs to be enabled for Travis tests to pass (since gulp fails to exit
+  // after the tests otherwise).
   .pipe(exit());
   return t;
 });
