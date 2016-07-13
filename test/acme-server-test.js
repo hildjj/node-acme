@@ -12,7 +12,7 @@ const ACMEServer = require('../lib/acme-server');
 
 //let fakeClient = new FakeClient();
 let serverConfig = {
-  host:     '0.0.0.0'
+  host: '0.0.0.0'
 };
 let mockClient = new MockClient();
 
@@ -109,11 +109,11 @@ describe('ACME server', function() {
         return mockClient._key.thumbprint();
       })
       .then(tpBuffer => {
-        let reg = {
+        let existing = {
           id:   tpBuffer.toString('hex'),
           type: function() { return 'reg'; }
         };
-        server.db.put(reg);
+        server.db.put(existing);
 
         request(server.app)
           .post('/new-reg')
