@@ -183,9 +183,10 @@ describe('ACME server', function() {
     let nonce = server.transport.nonces.get();
     let url = server.baseURL + 'new-app';
     let app = {
-      'csr': testCSR
+      'csr':       testCSR,
+      'notBefore': '2016-07-14T23:19:36.197Z',
+      'notAfter':  '2017-07-14T23:19:36.197Z'
     };
-
 
     mockClient.key()
       .then(k => k.thumbprint())
@@ -208,7 +209,6 @@ describe('ACME server', function() {
             };
           }
         };
-        console.log('thumbprint @ insert:', thumbprint);
         server.db.put(existing);
 
         request(server.app)
@@ -216,10 +216,27 @@ describe('ACME server', function() {
           .send(jws)
           .expect(201)
           .expect('location', /.*/)
-          .expect(function() {
-            // TODO check contents
-          }, done);
-      });
+          .end(function(err, res) {
+            if (err) {
+              done(err);
+              return;
+            }
+
+            assert.property(res.body, 'status');
+            assert.property(res.body, 'csr');
+            assert.property(res.body, 'notBefore');
+            assert.property(res.body, 'notAfter');
+            assert.property(res.body, 'requirements');
+
+            assert.equal(res.body.csr, app.csr);
+            assert.equal(res.body.notBefore, app.notBefore);
+            assert.equal(res.body.notAfter, app.notAfter);
+            assert.isArray(res.body.requirements);
+            assert.isTrue(res.body.requirements.length > 0);
+            done();
+          });
+      })
+      .catch(done);
   });
 
   it('rejects a new application from an unregistered key', function() {});
