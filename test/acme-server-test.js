@@ -122,4 +122,56 @@ describe('ACME server', function() {
           .expect('location', /.*/, done);
       });
   });
+
+  it('updates a registration', function(done) {
+    let server = new ACMEServer(serverConfig);
+    let termsURL = 'https://example.com/terms';
+    server.terms = termsURL;
+
+    let nonce = server.transport.nonces.get();
+    let thumbprint;
+
+    let reg2 = {
+      contact:   ['mailto:someone@example.org'],
+      agreement: termsURL
+    };
+
+    mockClient.key()
+      .then(k => k.thumbprint())
+      .then(tpBuffer => {
+        thumbprint = tpBuffer.toString('hex');
+        let url = `${server.baseURL}reg/${thumbprint}`;
+        return mockClient.makeJWS(nonce, url, reg2);
+      })
+      .then(jws => {
+        let existing = {
+          id:      thumbprint,
+          key:     mockClient._key,
+          contact: ['mailto:anonymous@example.com'],
+          type:    function() { return 'reg'; },
+          marshal: function() {
+            return {
+              key:       this.key.toJSON(),
+              status:    this.status,
+              contact:   this.contact,
+              agreement: this.agreement
+            };
+          }
+        };
+        server.db.put(existing);
+
+        request(server.app)
+          .post(`/reg/${existing.id}`)
+          .send(jws)
+          .expect(200)
+          .expect(function(body) {
+            assert.property(body, 'key');
+            assert.property(body, 'contact');
+            assert.property(body, 'agreement');
+            assert.deepEqual(body.key, mockClient._key.toJSON());
+            assert.deepEqual(body.contact, reg2.contact);
+            assert.deepEqual(body.agreement, reg2.agreement);
+          }, done);
+      });
+  });
 });
