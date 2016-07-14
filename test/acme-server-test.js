@@ -15,6 +15,7 @@ let serverConfig = {
   host: '0.0.0.0'
 };
 let mockClient = new MockClient();
+let testCSR = 'MIICoTCCAYkCAQAwGjEYMBYGA1UEAxMPbm90LWV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq7F00dtBUeN9DHEiDRimh5OtlU0KDXw-B-04kBaZkTtXU-1G3GW-BG9p_M0PyT7NSn5rYcdzisajTQZJD-cQgltgevWARc8dkrIy4ogj4qihwagO-glAo20ZZoreibdL3cpOM2kmjRkkXDCFDXZF1kL8LhoKRg1H5dmkVcgw7ALr-AhRUHcvVmkv4XwGT_H1fzgutTCIMvEwnKIsn1lw6q5rK6pUktnsGQqJFrzJ_RUN_CK0BPg3BD9QOkwxXZ9ZTMttAIrZMuBA3wf_83_erI53s_46PMgLI3rDpPa9clqylSZGEDwXy8sLwQXSSuWCMLD_t99MZvDFcDjPSyJUaQIDAQABoEIwQAYJKoZIhvcNAQkOMTMwMTAvBgNVHREEKDAmgg9ub3QtZXhhbXBsZS5jb22CE3d3dy5ub3QtZXhhbXBsZS5jb20wDQYJKoZIhvcNAQEFBQADggEBAFoGL91KCrF1UaT-ZHOoC_SfXA9O2zsLHZDAqfcciqPn85pCUDntdbxiSAmfMt_K6PI-MqlWIR2ejZG7yYpT1Nx3UyDggRQiAS8WRPw8M9B43Ang5HnaOX2Y7q0J0TTGQXBO3Ts8advtQcvaOJMvpAborebQizzN0pzhMkBcAOgzZQVKWJvwqMzQsD5VJP8gw7i-HH3IROep3Ayu74gTDYvfVyMJEIbY1D4P3FcoUcc-K0mOYlIu1a8zS6KDCRj5rrhR1dmMj8bd_V6e9234lXHaZFTKDPcVowT8w9LwB4DJPzQu7b7grtynFV645q_-aSxPxJGmj7i-aayO-T00cUE';
 
 describe('ACME server', function() {
   it('responds to a directory request', function(done) {
@@ -174,4 +175,55 @@ describe('ACME server', function() {
           }, done);
       });
   });
+
+  it('creates a new application', function(done) {
+    let server = new ACMEServer(serverConfig);
+
+    let thumbprint;
+    let nonce = server.transport.nonces.get();
+    let url = server.baseURL + 'new-app';
+    let app = {
+      'csr': testCSR
+    };
+
+
+    mockClient.key()
+      .then(k => k.thumbprint())
+      .then(tpBuffer => {
+        thumbprint = tpBuffer.toString('hex');
+        return mockClient.makeJWS(nonce, url, app);
+      })
+      .then(jws => {
+        let existing = {
+          id:      thumbprint,
+          key:     mockClient._key,
+          contact: ['mailto:anonymous@example.com'],
+          type:    function() { return 'reg'; },
+          marshal: function() {
+            return {
+              key:       this.key.toJSON(),
+              status:    this.status,
+              contact:   this.contact,
+              agreement: this.agreement
+            };
+          }
+        };
+        console.log('thumbprint @ insert:', thumbprint);
+        server.db.put(existing);
+
+        request(server.app)
+          .post('/new-app')
+          .send(jws)
+          .expect(201)
+          .expect('location', /.*/)
+          .expect(function() {
+            // TODO check contents
+          }, done);
+      });
+  });
+
+  it('rejects a new application from an unregistered key', function() {});
+  it('rejects a new application with an invalid csr', function() {});
+  it('rejects a new application with an invalid notBefore', function() {});
+  it('rejects a new application with an invalid notAfter', function() {});
 });
