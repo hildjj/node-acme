@@ -8,6 +8,7 @@
 const assert          = require('chai').assert;
 const request         = require('supertest');
 const MockClient      = require('./tools/mock-client');
+const promisify       = require('./tools/promisify');
 const TransportServer = require('../lib/transport-server');
 
 let nonceRE = /^[a-zA-Z0-9-_]+$/;
@@ -34,17 +35,18 @@ describe('transport-level server', function() {
     });
 
     mockClient.makeJWS(nonce, 'http://0.0.0.0/foo', payload)
-    .then(jws => {
-      request(server.app)
-        .post('/foo')
-        .send(jws)
-        .expect(200)
-        .expect('replay-nonce', nonceRE, done)
-        .expect(body => {
-          assert.isTrue(gotPOST);
-          assert.deepEqual(body, result);
-        });
-    });
+      .then(jws => promisify(request(server.app).post('/foo').send(jws)))
+      .then(res => {
+        assert.equal(res.status, 200);
+
+        assert.property(res.headers, 'replay-nonce');
+        assert.ok(res.headers['replay-nonce'].match(nonceRE));
+
+        assert.isTrue(gotPOST);
+        assert.deepEqual(res.body, result);
+        done();
+      })
+      .catch(done);
   });
 
   it('rejects a POST with a bad nonce', function(done) {

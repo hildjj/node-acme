@@ -32,6 +32,7 @@
     "express": "^4.13",
     "native-dns": "^0.7.0",
     "node-jose": "^0.8",
+    "node-uuid": "^1.4.7",
     "npmlog": "^2.0",
     "request-debug": "^0.2",
     "request-promise": "https://github.com/hildjj/request-promise.git#cls-depend"
