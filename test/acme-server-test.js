@@ -8,6 +8,7 @@
 const assert     = require('chai').assert;
 const request    = require('supertest');
 const MockClient = require('./tools/mock-client');
+const promisify  = require('./tools/promisify');
 const ACMEServer = require('../lib/acme-server');
 
 //let fakeClient = new FakeClient();
@@ -24,17 +25,21 @@ describe('ACME server', function() {
 
     server.terms = termsURL;
 
-    request(server.app)
-      .get('/directory')
-      .expect(200)
-      .expect(function(res) {
-        assert.property(res, 'meta');
-        assert.isObject(res.meta);
-        assert.property(res.meta, 'terms-of-service');
-        assert.equal(res.meta['terms-of-service'], termsURL);
-        assert.property(res, 'new-reg');
+    promisify(request(server.app).get('/directory'))
+      .then(res => {
+        assert.equal(res.status, 200);
+
+        assert.property(res.body, 'meta');
+        assert.isObject(res.body.meta);
+        assert.property(res.body.meta, 'terms-of-service');
+        assert.equal(res.body.meta['terms-of-service'], termsURL);
+
+        assert.property(res.body, 'new-reg');
+        assert.property(res.body, 'new-app');
         // TODO Add things here as they get added to the directory
-      }, done);
+        done();
+      })
+      .catch(done);
   });
 
   it('answers a valid fetch', function(done) {
@@ -46,12 +51,13 @@ describe('ACME server', function() {
     };
 
     server.db.put(reg);
-    request(server.app)
-      .get('/foo/bar')
-      .expect(200)
-      .expect(function(res) {
-        assert.deepEqual(res, reg.marshal());
-      }, done);
+    promisify(request(server.app).get('/foo/bar'))
+      .then(res => {
+        assert.equal(res.status, 200);
+        assert.deepEqual(res.body, reg.marshal());
+        done();
+      })
+      .catch(done);
   });
 
   it('rejects a fetch for a registration object', function(done) {
@@ -78,20 +84,20 @@ describe('ACME server', function() {
     let reg = {contact: ['mailto:anonymous@example.com']};
 
     mockClient.makeJWS(nonce, url, reg)
-      .then(jws => {
-        request(server.app)
-          .post('/new-reg')
-          .send(jws)
-          .expect(201)
-          .expect('location', /.*/)
-          .expect('link', /.*/)
-          .expect(function(body) {
-            assert.property(body, 'key');
-            assert.property(body, 'contact');
-            assert.deepEqual(body.key, mockClient._key.toJSON());
-            assert.deepEqual(body.contact, reg.contact);
-          }, done);
-      });
+      .then(jws => promisify(request(server.app).post('/new-reg').send(jws)))
+      .then(res => {
+        assert.equal(res.status, 201);
+
+        assert.property(res.headers, 'location');
+        assert.property(res.headers, 'link');
+
+        assert.property(res.body, 'key');
+        assert.property(res.body, 'contact');
+        assert.deepEqual(res.body.key, mockClient._key.toJSON());
+        assert.deepEqual(res.body.contact, reg.contact);
+        done();
+      })
+      .catch(done);
   });
 
   it('rejects a new registration for an existing key', function(done) {
@@ -161,18 +167,19 @@ describe('ACME server', function() {
         };
         server.db.put(existing);
 
-        request(server.app)
-          .post(`/reg/${existing.id}`)
-          .send(jws)
-          .expect(200)
-          .expect(function(body) {
-            assert.property(body, 'key');
-            assert.property(body, 'contact');
-            assert.property(body, 'agreement');
-            assert.deepEqual(body.key, mockClient._key.toJSON());
-            assert.deepEqual(body.contact, reg2.contact);
-            assert.deepEqual(body.agreement, reg2.agreement);
-          }, done);
+        return promisify(request(server.app).post(`/reg/${existing.id}`).send(jws));
+      })
+      .then(res => {
+        assert.equal(res.status, 200);
+
+        assert.property(res.body, 'key');
+        assert.property(res.body, 'contact');
+        assert.property(res.body, 'agreement');
+
+        assert.deepEqual(res.body.key, mockClient._key.toJSON());
+        assert.deepEqual(res.body.contact, reg2.contact);
+        assert.deepEqual(res.body.agreement, reg2.agreement);
+        done();
       });
   });
 
@@ -211,30 +218,25 @@ describe('ACME server', function() {
         };
         server.db.put(existing);
 
-        request(server.app)
-          .post('/new-app')
-          .send(jws)
-          .expect(201)
-          .expect('location', /.*/)
-          .end(function(err, res) {
-            if (err) {
-              done(err);
-              return;
-            }
+        return promisify(request(server.app).post('/new-app').send(jws));
+      })
+      .then(res => {
+        assert.equal(res.status, 201);
 
-            assert.property(res.body, 'status');
-            assert.property(res.body, 'csr');
-            assert.property(res.body, 'notBefore');
-            assert.property(res.body, 'notAfter');
-            assert.property(res.body, 'requirements');
+        assert.property(res.headers, 'location');
 
-            assert.equal(res.body.csr, app.csr);
-            assert.equal(res.body.notBefore, app.notBefore);
-            assert.equal(res.body.notAfter, app.notAfter);
-            assert.isArray(res.body.requirements);
-            assert.isTrue(res.body.requirements.length > 0);
-            done();
-          });
+        assert.property(res.body, 'status');
+        assert.property(res.body, 'csr');
+        assert.property(res.body, 'notBefore');
+        assert.property(res.body, 'notAfter');
+        assert.property(res.body, 'requirements');
+
+        assert.equal(res.body.csr, app.csr);
+        assert.equal(res.body.notBefore, app.notBefore);
+        assert.equal(res.body.notAfter, app.notAfter);
+        assert.isArray(res.body.requirements);
+        assert.isTrue(res.body.requirements.length > 0);
+        done();
       })
       .catch(done);
   });
