@@ -327,4 +327,86 @@ describe('ACME server', function() {
   it('rejects a new application with an invalid csr', function() {});
   it('rejects a new application with an invalid notBefore', function() {});
   it('rejects a new application with an invalid notAfter', function() {});
+
+  it('creates a new application', function(done) {
+    let server = new ACMEServer(serverConfig);
+
+    let nonce = server.transport.nonces.get();
+    let url = server.baseURL + 'new-app';
+    let app = {
+      'csr':       testCSR,
+      'notBefore': '2016-07-14T23:19:36.197Z',
+      'notAfter':  '2017-07-14T23:19:36.197Z'
+    };
+
+    let thumbprint;
+    let appPath;
+    let testServer = request(server.app);
+    mockClient.key()
+      .then(k => k.thumbprint())
+      .then(tpBuffer => {
+        thumbprint = tpBuffer.toString('hex');
+        return mockClient.makeJWS(nonce, url, app);
+      })
+      .then(jws => {
+        let existing = {
+          id:      thumbprint,
+          key:     mockClient._key,
+          contact: ['mailto:anonymous@example.com'],
+          type:    function() { return 'reg'; },
+          marshal: function() {
+            return {
+              key:       this.key.toJSON(),
+              status:    this.status,
+              contact:   this.contact,
+              agreement: this.agreement
+            };
+          }
+        };
+        server.db.put(existing);
+
+        return promisify(testServer.post('/new-app').send(jws));
+      })
+      .then(res => {
+        assert.equal(res.status, 201);
+
+        appPath = path(res.headers.location);
+
+        let validations = res.body.requirements
+          .filter(x => (x.type === 'authorization'))
+          .map(req => {
+            let authzPath = path(req.url);
+            let challPath;
+
+            return Promise.resolve()
+              .then(() => promisify(testServer.get(authzPath)))
+              .then(authzRes => {
+                assert.equal(authzRes.status, 200);
+
+                let challURL = authzRes.body.challenges[0].url;
+                challPath = path(challURL);
+                let challNonce = server.transport.nonces.get();
+                return mockClient.makeJWS(challNonce, challURL, {});
+              })
+              .then(jws =>  promisify(testServer.post(challPath).send(jws)))
+              .then(challRes => assert.equal(challRes.status, 200))
+              .then(() => promisify(testServer.get(authzPath)))
+              .then(authzRes => {
+                assert.equal(authzRes.status, 200);
+                assert.equal(authzRes.body.status, 'valid');
+              });
+          });
+
+        return Promise.all(validations);
+      })
+      .then(() => promisify(testServer.get(appPath)))
+      .then(res => {
+        assert.equal(res.status, 200);
+        assert.equal(res.body.status, 'valid');
+        assert.property(res.body, 'certificate');
+        assert.isString(res.body.certificate);
+        done();
+      })
+      .catch(done);
+  });
 });
