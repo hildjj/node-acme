@@ -5,18 +5,18 @@
 
 'use strict';
 
-const assert     = require('chai').assert;
-const request    = require('supertest');
-const urlParse   = require('url');
-const MockClient = require('./tools/mock-client');
-const promisify  = require('./tools/promisify');
-const ACMEServer = require('../lib/acme-server');
+const assert        = require('chai').assert;
+const request       = require('supertest');
+const urlParse      = require('url');
+const MockClient    = require('./tools/mock-client');
+const promisify     = require('./tools/promisify');
+const AutoChallenge = require('./tools/auto-challenge');
+const ACMEServer    = require('../lib/acme-server');
 
 let serverConfig = {
   host:               '0.0.0.0',
   authzExpirySeconds: 30 * 24 * 3600,
-  // TODO: Change to pass in validation objects
-  autoChallenge:      true
+  challengeTypes:     [AutoChallenge]
 };
 let mockClient = new MockClient();
 
@@ -328,7 +328,7 @@ describe('ACME server', function() {
   it('rejects a new application with an invalid notBefore', function() {});
   it('rejects a new application with an invalid notAfter', function() {});
 
-  it('creates a new application', function(done) {
+  it('issues a certificate', function(done) {
     let server = new ACMEServer(serverConfig);
 
     let nonce = server.transport.nonces.get();
@@ -386,7 +386,10 @@ describe('ACME server', function() {
                 let challURL = authzRes.body.challenges[0].url;
                 challPath = path(challURL);
                 let challNonce = server.transport.nonces.get();
-                return mockClient.makeJWS(challNonce, challURL, {});
+                return mockClient.makeJWS(challNonce, challURL, {
+                  type:  AutoChallenge.type,
+                  token: authzRes.body.challenges[0].token
+                });
               })
               .then(jws =>  promisify(testServer.post(challPath).send(jws)))
               .then(challRes => assert.equal(challRes.status, 200))
